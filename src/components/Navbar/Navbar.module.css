@@ -1,0 +1,14 @@
+.navbar{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: rgb(143, 140, 136);
+    color: rgba(9, 9, 56, 0.893);
+    min-height: 3vh;
+    margin-bottom: 1rem;
+}
+
+.nav{
+    margin: 2px;
+  
+  }
