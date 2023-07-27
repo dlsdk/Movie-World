@@ -1,6 +1,6 @@
 import ActionTypes from "../actiontypes"
 
-const {siteActionTypes: {ADD_USER, DELETE_USER}} = ActionTypes
+const {siteActionTypes: {ADD_USER, DELETE_USER,SET_CURRENT_USER,DELETE_CURRENT_USER}} = ActionTypes
 
 export const addUser = (user) => {
     return {
@@ -15,8 +15,20 @@ export const deleteUser = () => {
     }
 }
 
+export const setCurrentUser = (user) => {
+    return {
+        type: SET_CURRENT_USER,
+        user
+    }
+}
+export const deleteCurrentUser = () => {
+    return {
+        type: DELETE_CURRENT_USER,
+    }
+}
+
 const SiteActions = {
-    deleteUser, addUser
+    deleteUser, addUser, setCurrentUser, deleteCurrentUser
 };
 
 export default SiteActions;

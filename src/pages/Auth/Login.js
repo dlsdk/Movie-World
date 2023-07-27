@@ -1,38 +1,35 @@
 import React from 'react'
-import selectors from '../../redux/selectors'
-import Actions from '../../redux/actions'
-import { useDispatch,useSelector} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Actions from '../../redux/actions'
+import { useDispatch} from 'react-redux'
 import helperFunctions from '../../helpers'
+
+const {SiteActions: {setCurrentUser,deleteCurrentUser}} = Actions
+const {getFromLocalStorage} = helperFunctions
+localStorage.removeItem('currentUser');
 
 
 export default function Login() {
-    const {SiteSelectors: {selectUsers,selectNumberOfUsers}} = selectors
-    const {SiteActions: {addUser}} = Actions
-    const {getUserWithUname} = helperFunctions
-    const dispatch = useDispatch();
-    const users = useSelector(selectUsers);
-    const NumberOfUsers = useSelector(selectNumberOfUsers)
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
+    dispatch(deleteCurrentUser());
+    
     const handleSubmit = (e) => {
-        // girilen kullanıcı ismi ile kullanıcı var mı ? varsa login işlemini yap.
-        // yoksa register a yönlendir 
-        const uname = e.target.uname.value
         e.preventDefault();
-        console.log("handleSubmit function");
-        const user = JSON.parse(localStorage.getItem('user'))
-        if (user && user.uname === uname){
-            console.log("zaten bu kullanıcı var LOGIN PAGE") 
+        const uname = e.target.uname.value
+        const user = getFromLocalStorage(`user_${uname}`);
+        console.log(user);
+        if (user){
+            dispatch(setCurrentUser(user));  
+            localStorage.setItem('currentUser',JSON.stringify(user));
             navigate('/');
         }
         else{
-            console.log("kullanıcı yok registera yönlendir LOGIN PAGE")
-            console.log(users);
+            alert("Please Register First")
             navigate('/auth/register');
         }
-       
     }
+
   return (
     //FORMİK İLE VALİDATE YAP
     <>
@@ -51,7 +48,7 @@ export default function Login() {
             </div>
         </form>
      </div>
-     <button>Create account</button> {/*register sayfasına yönlendir*/}
+     <button onClick={e => navigate('/auth/register')}>Create account</button> {/*register sayfasına yönlendir*/}
     </>
    
   )

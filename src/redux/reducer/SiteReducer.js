@@ -1,10 +1,11 @@
 import ActionTypes from "../actiontypes"
 
-const {siteActionTypes: {ADD_USER,DELETE_USER}} = ActionTypes
+const {siteActionTypes: {ADD_USER,DELETE_USER,SET_CURRENT_USER,DELETE_CURRENT_USER}} = ActionTypes
 
 const initialState = {
     users: {
     },
+    currentUser: {},
 }
 
 const SiteReducer = (state=initialState,action) => {
@@ -21,6 +22,16 @@ const SiteReducer = (state=initialState,action) => {
             return {
                 ...state,
                 users: newUsers,
+            }
+        case SET_CURRENT_USER: 
+            return {
+               ...state,
+               currentUser: {[action.user.id]:{...action.user}} 
+            }
+        case DELETE_CURRENT_USER: 
+            return {
+               ...state,
+               currentUser: {} 
             }
         default:
             return state;

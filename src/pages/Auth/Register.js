@@ -1,51 +1,46 @@
 import React from 'react'
-import selectors from '../../redux/selectors'
 import Actions from '../../redux/actions'
-import { useDispatch,useSelector} from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import helperFunctions from '../../helpers'
 
+const {SiteActions: {addUser,deleteCurrentUser}} = Actions 
+const {getAllLocalStorageValues} = helperFunctions
+localStorage.removeItem('currentUser');
+
 export default function Register() {
 
-    const {SiteSelectors: {selectUsers,selectNumberOfUsers}} = selectors
-    const {SiteActions: {addUser}} = Actions
-    const {getUserWithUname} = helperFunctions
     const dispatch = useDispatch();
-    const users = useSelector(selectUsers);
-    const NumberOfUsers = useSelector(selectNumberOfUsers);
     const navigate = useNavigate();
-
+    dispatch(deleteCurrentUser());
+  
     const handleSubmit = (e) => {
-     // hesap gerçekten var mı yok mu?
-     // hesap varsa uyarı versin ve login page e yönlendirsin
-     // hesap yoksa gerçekten şifreler eşleşiyor mu ona baksın eşleşiyorsa eklesin localstroge a da kaydetsin
+    e.preventDefault();
 
-     e.preventDefault();
-     console.log("handleSubmit function REGISTER PAGE");
-     const uname = e.target.uname.value;
-     const password = e.target.password.value;
-     const confirmpass = e.target.confirmpass.value;
+    const uname = e.target.uname.value;
+    const password = e.target.password.value;
+    const confirmpass = e.target.confirmpass.value;
+    const id = localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
+
 
     if (password === confirmpass){
-        const user = JSON.parse(localStorage.getItem('user'))
-        if (user && user.uname === uname){
-            console.log("zaten bu kullanıcı var REGISTER PAGE") 
-            alert("KULLANICI ZATEN VAR");
+        const user = JSON.parse(localStorage.getItem(`user_${uname}`))
+        if (user){
+            alert("Already have account");
         }
         else{
-            console.log("bu kullanıcı yok REGISTER PAGE")
-            let userPayload = { id:1,
+            let userPayload = { id,
                 uname,
                 password
             }
             dispatch(addUser(userPayload));
-            localStorage.setItem(`user`,JSON.stringify(userPayload))
-            alert("KAYIT BAŞARILI");
+            localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload))
+            alert("Registration completed successfully");
         }
         navigate('/auth/login');
     } 
     else{
-        alert("ŞİFRELER EŞLEŞMİYOR")
+        alert("Passwords doesn't match!")
     }
 }
   return (

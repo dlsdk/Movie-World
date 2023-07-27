@@ -11,3 +11,8 @@ export const selectNumberOfUsers = createSelector(
     [selectSite],
     (site) => Object.keys(site.users).length
 )
+
+export const selectCurrentUser = createSelector(
+    [selectSite],
+    (site) => site.currentUser
+)
