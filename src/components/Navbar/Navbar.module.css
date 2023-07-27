@@ -1,6 +1,6 @@
 .navbar{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     background-color: rgb(143, 140, 136);
     color: rgba(9, 9, 56, 0.893);
@@ -10,5 +10,4 @@
 
 .nav{
     margin: 2px;
-  
-  }
+}
