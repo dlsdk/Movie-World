@@ -3,16 +3,20 @@ import Actions from '../../redux/actions'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import helperFunctions from '../../helpers'
+import selectors from '../../redux/selectors'
+import { useSelector } from 'react-redux'
 
-const {SiteActions: {deleteCurrentUser}} = Actions
+const {SiteActions: {deleteCurrentUser,deleteUser}} = Actions
 const {getFromLocalStorage} = helperFunctions
-const localCurrentUserUname = getFromLocalStorage('currentUser')?.uname
+const {SiteSelectors: {selectUsers}} = selectors
+
 
 export default function Profile() {
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
+  const localCurrentUserUname = getFromLocalStorage('currentUser').uname
+  const users = useSelector(selectUsers);
+  console.log("USERS",users);
   
   const handleLogout = () =>{
     localStorage.removeItem('currentUser'); 
@@ -20,6 +24,7 @@ export default function Profile() {
     navigate('/')
   
   }
+  
   const handleDeleteAccount = () => {
     Object.values(localStorage).forEach((item) => { 
     item = JSON.parse(item);
@@ -27,7 +32,8 @@ export default function Profile() {
       localStorage.removeItem(`user_${item.uname}`);
     }
   }
-  )
+  ) 
+   dispatch(deleteUser({id:`${localCurrentUserUname}`}))
     handleLogout();
   }
  

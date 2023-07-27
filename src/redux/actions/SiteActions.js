@@ -9,9 +9,11 @@ export const addUser = (user) => {
     }
 }
 
-export const deleteUser = () => {
+export const deleteUser = (payload) => {
+    console.log("ACTİONDA",payload)
     return {
-        type: DELETE_USER
+        type: DELETE_USER,
+        payload
     }
 }
 
