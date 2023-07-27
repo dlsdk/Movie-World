@@ -6,25 +6,28 @@ import helperFunctions from '../../helpers'
 
 const {SiteActions: {deleteCurrentUser}} = Actions
 const {getFromLocalStorage} = helperFunctions
-
+const localCurrentUserUname = getFromLocalStorage('currentUser')?.uname
 
 export default function Profile() {
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const localCurrentUserUname = getFromLocalStorage('currentUser').uname
+ 
+  
   const handleLogout = () =>{
     localStorage.removeItem('currentUser'); 
     dispatch(deleteCurrentUser())
     navigate('/')
+  
   }
-
   const handleDeleteAccount = () => {
-   Object.values(localStorage).forEach((item) => { 
-    item = Object.parse(item);
+    Object.values(localStorage).forEach((item) => { 
+    item = JSON.parse(item);
     if (item.uname === localCurrentUserUname){
       localStorage.removeItem(`user_${item.uname}`);
     }
-  })
+  }
+  )
     handleLogout();
   }
  
