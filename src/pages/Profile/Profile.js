@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 const {SiteActions: {deleteCurrentUser,deleteUser}} = Actions
 const {getFromLocalStorage} = helperFunctions
 const {SiteSelectors: {selectUsers}} = selectors
-const localCurrentUserUname = getFromLocalStorage('currentUser').uname
+
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export default function Profile() {
     navigate('/')
   }
   const handleDeleteAccount = () => {
-
+  const localCurrentUserUname = getFromLocalStorage('currentUser').uname
     Object.values(localStorage).forEach((item) => { 
     item = JSON.parse(item);
     if (item.uname === localCurrentUserUname){

@@ -1,0 +1,12 @@
+.formdiv{
+    display: flex;
+    justify-content: center;
+}
+
+.FormStyle{
+    margin-top: 15%;
+}
+
+.p{
+    color: antiquewhite;
+}

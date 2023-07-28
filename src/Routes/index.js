@@ -10,8 +10,8 @@ import BlogPage404 from '../pages/Blog/BlogPage404'
 import Profile from '../pages/Profile/Profile'
 import PrivateRoute from './PrivateRoute/PrivateRoute'
 import AuthLayout from '../pages/Auth/AuthLayout'
-import Login from '../pages/Auth/Login'
-import Register from '../pages/Auth/Register'
+import Login from '../pages/Auth/Login/Login.js'
+import Register from '../pages/Auth/Register/Register.js'
 import HomeLayout from '../pages/Home/HomeLayout'
 
 /*export default function RoutePage() {
