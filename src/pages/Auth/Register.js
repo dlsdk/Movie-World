@@ -6,7 +6,7 @@ import helperFunctions from '../../helpers'
 
 const {SiteActions: {addUser,deleteCurrentUser}} = Actions 
 const {getAllLocalStorageValues} = helperFunctions
-localStorage.removeItem('currentUser');
+
 
 export default function Register() {
 

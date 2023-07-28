@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route,Routes } from 'react-router-dom'
 import BlogLayout from '../pages/Blog/BlogLayout'
 import Home from '../pages/Home/Home'
 import Contact from '../pages/Contact/Contact'
@@ -15,7 +14,7 @@ import Login from '../pages/Auth/Login'
 import Register from '../pages/Auth/Register'
 import HomeLayout from '../pages/Home/HomeLayout'
 
-export default function RoutePage() {
+/*export default function RoutePage() {
   return (
     <>
         <Routes>
@@ -39,3 +38,79 @@ export default function RoutePage() {
     </>
   )
 }
+*/
+
+const routes = [
+    {
+        path:'/',
+        element: <HomeLayout/>,
+        children: [
+            {
+                index: true,
+                element: <Home/>
+            },
+            {
+                path: 'contact',
+                element: <Contact/>
+            },
+            {
+                path: 'blog',
+                element: <BlogLayout/>,
+                auth: true,
+                children: [
+                    {
+                        index: true,
+                        element: <Blog/>
+                    },
+                    {
+                        path:'categories',
+                        element:<Categories/>
+                    },
+                    {
+                        path:'post/:url',
+                        element: <Post/>
+                    },
+                    {
+                        path:'*',
+                        element:<BlogPage404/>
+                    }
+                ]
+            },
+            {
+                path:'profile',
+                element:<Profile/>,
+                auth: true
+            }
+        ],
+    },
+    {
+        path: '/auth',
+        element: <AuthLayout/>,
+        children: [
+            {
+                path:'login',
+                element:<Login/>
+            },
+            {
+                path:'register',
+                element:<Register/>
+            }
+        ]
+    },
+    {
+        path:'*',
+        element:<Page404/>
+    }
+]
+
+const authMap = routes => routes.map(route => {
+    if (route.auth){
+        route.element = <PrivateRoute>{route.element}</PrivateRoute>
+    }
+    if(route.children){
+        route.children = authMap(route.children)
+    }
+    return route;
+})
+
+export default authMap(routes);

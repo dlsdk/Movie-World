@@ -3,26 +3,28 @@ import { useNavigate } from 'react-router-dom'
 import Actions from '../../redux/actions'
 import { useDispatch} from 'react-redux'
 import helperFunctions from '../../helpers'
+import { useLocation } from 'react-router-dom'
 
 const {SiteActions: {setCurrentUser,deleteCurrentUser}} = Actions
 const {getFromLocalStorage} = helperFunctions
-localStorage.removeItem('currentUser');
 
 
 export default function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     dispatch(deleteCurrentUser());
+    const location = useLocation()
+    localStorage.removeItem('currentUser');
     
     const handleSubmit = (e) => {
         e.preventDefault();
         const uname = e.target.uname.value
-        const user = getFromLocalStorage(`user_${uname}`);
+        const user = getFromLocalStorage(`user_${uname}`)
         console.log(user);
         if (user){
             dispatch(setCurrentUser(user));  
             localStorage.setItem('currentUser',JSON.stringify(user));
-            navigate('/');
+            navigate(location.state || '/');
         }
         else{
             alert("Please Register First")

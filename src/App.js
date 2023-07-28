@@ -1,11 +1,11 @@
 import './App.css';
-import RoutePage from './Routes';
-
+import { useRoutes } from 'react-router-dom';
+import routes from './Routes'
 
 function App() {
   return (
     <div className="App">
-      <RoutePage/>
+      {useRoutes(routes)}
     </div>
   );
 }
