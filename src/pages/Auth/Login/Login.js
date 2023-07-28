@@ -4,9 +4,10 @@ import Actions from '../../../redux/actions'
 import { useDispatch} from 'react-redux'
 import helperFunctions from '../../../helpers'
 import { useLocation } from 'react-router-dom'
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input , Image} from 'antd';
 import { UserOutlined,LockOutlined } from '@ant-design/icons'
 import styles from './Login.module.css'
+import logo from '../../../logo/Color logo - no background.png'
 
 const {SiteActions: {setCurrentUser,deleteCurrentUser}} = Actions
 const {getFromLocalStorage} = helperFunctions
@@ -45,6 +46,9 @@ export default function Login() {
     <>
     <div className={styles.formdiv}>
           <Form className={styles.FormStyle} form={form} style={{width:'20rem',}} onFinish={handleSubmit}>
+            <Form.Item>
+                <Image width={300} src={logo}/>
+            </Form.Item>
             <Form.Item name="uname" rules={[{ required: true, message: 'Please input your Username!' }]}>
                 <Input prefix={<UserOutlined />} placeholder="Username" />
             </Form.Item>

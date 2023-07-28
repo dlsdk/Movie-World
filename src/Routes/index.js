@@ -14,32 +14,6 @@ import Login from '../pages/Auth/Login/Login.js'
 import Register from '../pages/Auth/Register/Register.js'
 import HomeLayout from '../pages/Home/HomeLayout'
 
-/*export default function RoutePage() {
-  return (
-    <>
-        <Routes>
-            <Route path='/' element={<HomeLayout/>}>
-                <Route index={true} element={<Home/>}/>
-                <Route path='contact' element={<Contact/>}/>
-                <Route path='blog' element={<BlogLayout/>}> 
-                    <Route index={true} element={<Blog/>}/>
-                    <Route path='categories' element={<Categories/>}/>
-                    <Route path='post/:url' element={<Post/>}/>
-                    <Route path='*' element={<BlogPage404/>}/> 
-                </Route>
-                <Route path='profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
-            </Route>
-            <Route path='/auth' element={<AuthLayout/>}>
-                <Route path='login' element={<Login/>}/>
-                <Route path='register' element={<Register/>}/>
-            </Route>
-            <Route path='*' element={<Page404/>}/>
-        </Routes>  
-    </>
-  )
-}
-*/
-
 const routes = [
     {
         path:'/',
