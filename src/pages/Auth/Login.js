@@ -1,13 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Actions from '../../../redux/actions'
+import Actions from '../../redux/actions'
 import { useDispatch} from 'react-redux'
-import helperFunctions from '../../../helpers'
+import helperFunctions from '../../helpers'
 import { useLocation } from 'react-router-dom'
 import { Button, Form, Input , Image} from 'antd';
 import { UserOutlined,LockOutlined } from '@ant-design/icons'
-import styles from './Login.module.css'
-import logo from '../../../logo/Color logo - no background.png'
+import styles from './Auth.module.css'
+import logo from '../../logo/Color logo - no background.png'
 
 const {SiteActions: {setCurrentUser,deleteCurrentUser}} = Actions
 const {getFromLocalStorage} = helperFunctions
@@ -19,7 +19,7 @@ export default function Login() {
     dispatch(deleteCurrentUser());
     const location = useLocation()
     const [form] = Form.useForm();
-                localStorage.removeItem('currentUser')
+    localStorage.removeItem('currentUser')
     
     const handleSubmit = (values) => {
         const {uname, password} = values;
@@ -39,13 +39,15 @@ export default function Login() {
         else{
             alert("Please Register First")
         }
+        form.resetFields();
     }
+    
 
   return (
     //FORMİK İLE VALİDATE YAP
     <>
     <div className={styles.formdiv}>
-          <Form className={styles.FormStyle} form={form} style={{width:'20rem',}} onFinish={handleSubmit}>
+        <Form className={styles.FormStyle} form={form} onFinish={handleSubmit}>
             <Form.Item>
                 <Image width={300} src={logo}/>
             </Form.Item>
@@ -56,10 +58,10 @@ export default function Login() {
                 <Input  prefix={<LockOutlined />} type="password" placeholder="Password"/>
             </Form.Item>
             <Form.Item>
-                <Button type="primary" htmlType="submit" className="login-form-button" >Log in</Button>
-                <Button  type='link' onClick={() => navigate('/auth/register')}>Don't have an account?</Button>
-      </Form.Item>
-    </Form>
+                <Button className={styles.button} type='primary' htmlType="submit" >Log in</Button>
+                <Button  className={styles.buttonlink} type='link' onClick={() => navigate('/auth/register')}>Don't have an account?</Button>
+            </Form.Item>
+        </Form>
     </div>
       
     </>

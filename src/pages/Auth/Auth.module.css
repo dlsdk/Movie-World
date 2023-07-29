@@ -5,8 +5,16 @@
 
 .FormStyle{
     margin-top: 15%;
+    width:20rem;
 }
 
 .p{
     color: antiquewhite;
+}
+
+.button{
+    background-color: rgb(203, 14, 14)!important;
+}
+.buttonlink{
+    color: white!important;
 }

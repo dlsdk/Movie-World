@@ -1,49 +1,49 @@
 import React from 'react'
-import Actions from '../../../redux/actions'
+import Actions from '../../redux/actions'
 import { useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import helperFunctions from '../../../helpers'
+import helperFunctions from '../../helpers'
 import { Button, Form, Input } from 'antd';
 import { UserOutlined,LockOutlined } from '@ant-design/icons'
-import styles from '../Login/Login.module.css'
+import styles from './Auth.module.css'
 
 const {SiteActions: {addUser,deleteCurrentUser}} = Actions 
 const {getAllLocalStorageValues} = helperFunctions
 
 
 export default function Register() {
-
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
+    const [form] = Form.useForm();
     dispatch(deleteCurrentUser());
   
     const handleSubmit = (values) => {
-    const {uname, password, confirmpass} = values
-
-    const id = localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
-
-    if (password === confirmpass){
-        const user = JSON.parse(localStorage.getItem(`user_${uname}`))
-        if (user){
-            alert("Already have account");
-        }
-        else{
-            let userPayload = { id,
-                uname,
-                password
+    
+        const {uname, password, confirmpass} = values
+        const id = localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
+        
+        if (password === confirmpass){
+            const user = JSON.parse(localStorage.getItem(`user_${uname}`))
+            if (user){
+                alert("Already have account");
             }
-            dispatch(addUser(userPayload));
-            localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload))
-            alert("Registration completed successfully");
+            else{
+                let userPayload = { id,
+                uname,
+                password}
+                dispatch(addUser(userPayload));
+                localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload))
+                alert("Registration completed successfully");
+            }
+        } 
+        else{
+            alert("Passwords doesn't match!")
         }
-    } 
-    else{
-        alert("Passwords doesn't match!")
+        form.resetFields();
     }
-}
   return (
     <div className={styles.formdiv}>
-          <Form className={styles.FormStyle}  style={{width:'20rem',}} onFinish={handleSubmit}>
+          <Form className={styles.FormStyle} form={form} onFinish={handleSubmit}>
             <Form.Item name="uname" rules={[{ required: true, message: 'Please input your Username!' }]}>
                 <Input prefix={<UserOutlined />} placeholder="Username" />
             </Form.Item>
@@ -54,8 +54,8 @@ export default function Register() {
                 <Input  prefix={<LockOutlined />} type="password" placeholder="Confirm Password"/>
             </Form.Item>
             <Form.Item>
-                <Button type="primary" htmlType="submit" className="login-form-button" >Create Account</Button>
-        <Button  type='link' onClick={() => navigate('/auth/login')}>Go back to Login</Button>
+            <Button className={styles.button} type='primary' htmlType="submit" >Create Account</Button>
+                <Button className={styles.buttonlink} type='link' onClick={() => navigate('/auth/login')}>Go back to Login</Button>
       </Form.Item>
     </Form>
     </div>
