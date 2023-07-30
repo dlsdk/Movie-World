@@ -44,7 +44,6 @@ export default function Login() {
     
 
   return (
-    //FORMİK İLE VALİDATE YAP
     <>
     <div className={styles.formdiv}>
         <Form className={styles.FormStyle} form={form} onFinish={handleSubmit}>
