@@ -1,0 +1,65 @@
+/* .hero{
+    background-image: url(`https://image.tmdb.org/t/p/w500${mostRated.poster_path}`);
+} */
+/* Hero.module.css */
+.hero {
+ background-color: black;
+ position: relative;
+ max-height: 55vh;
+}
+
+.info{
+
+    color: white;
+    position: absolute;
+    top: 3rem;
+    left: 6rem;
+    max-width: 30rem;
+    text-align: start;
+    
+}
+
+.title{
+    font-size:4rem;
+}
+
+.heroimg{
+    width: 50%;
+    height: 55vh;
+    max-height: 55vh;
+    opacity: 0.5;
+    margin-left: 30rem; 
+}
+
+.detailbutton{
+   cursor: pointer;
+   background-color: rgb(203, 14, 14)!important;
+   transition: all 0.5s;
+   min-width: 8.1rem;
+   margin-top: 1rem;
+}
+
+.detailbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+.detailbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.detailbutton:hover span {
+    padding-right: 25px;
+}
+  
+  .detailbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

@@ -19,7 +19,7 @@ export default function Register() {
   
     const handleSubmit = (values) => {
     
-        const {uname, password, confirmpass} = values
+        const {uname, password, confirmpass} = values;
         const id = localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
         
         if (password === confirmpass){
@@ -32,7 +32,7 @@ export default function Register() {
                 uname,
                 password}
                 dispatch(addUser(userPayload));
-                localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload))
+                localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload));
                 alert("Registration completed successfully");
             }
         } 
