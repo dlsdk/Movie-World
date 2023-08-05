@@ -22,14 +22,11 @@ export default function Hero() {
   return (
     <>
       {mostRated && (
-          <div className={style.hero}>
-            <img alt="example" className={style.heroimg} src={`https://image.tmdb.org/t/p/w780${mostRated.backdrop_path}`}/> 
-            <div className={style.info}>
+        <>  <div className={style.hero} style={{backgroundImage: `url(https://image.tmdb.org/t/p/w780${mostRated.backdrop_path})`}}></div> <div className={style.info}>
               <h1 className={style.title}>{mostRated.title}</h1>
               <p>{mostRated.overview}</p>
               <Button onClick={() => handleClick(mostRated.id)} className={style.detailbutton} type='primary'><span>View Detail</span></Button>
-            </div>
-          </div>
+            </div></>
       )}
 
     </>

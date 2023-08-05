@@ -1,7 +1,7 @@
 .formdiv{
     display: flex;
     justify-content: center;
-    background-color: rgba(9, 9, 56, 0.893);
+    background-color: rgba(32,32,32);
     height: 100vh;
 }
 

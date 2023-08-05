@@ -3,16 +3,20 @@
 } */
 /* Hero.module.css */
 .hero {
- background-color: black;
- position: relative;
- max-height: 55vh;
+ background-position:center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 66vh;
+ opacity: 0.5;
+ margin-bottom: 4rem;
+ filter: blur(2px);
 }
 
 .info{
 
     color: white;
     position: absolute;
-    top: 3rem;
+    top: 7rem;
     left: 6rem;
     max-width: 30rem;
     text-align: start;
