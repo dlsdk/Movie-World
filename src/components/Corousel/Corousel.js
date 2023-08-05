@@ -1,8 +1,12 @@
 import React, { useRef } from 'react';
-import { Carousel, Card, Button } from 'antd';
+import { Carousel, Card } from 'antd';
 import style from './Corousel.module.css';
 import { ArrowRightOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
+
 export default function Corousel({ list, title }) {
+
+  const navigate = useNavigate();
   const carouselRef = useRef(null);
 
   const handlePrev = () => {
@@ -31,7 +35,7 @@ export default function Corousel({ list, title }) {
           >
             {list &&
               list.map((listElement, index) => (
-                <Card className={style.cards} key={index}>
+                <Card className={style.cards} key={index} onClick={() => navigate(`/blog/post/${listElement.id}`, { state: listElement  })}>
                   <img
                     className={style.images}
                     alt="example"

@@ -48,7 +48,7 @@ export default function Login() {
     <div className={styles.formdiv}>
         <Form className={styles.FormStyle} form={form} onFinish={handleSubmit}>
             <Form.Item>
-                <Image width={300} src={logo}/>
+                <Image preview={false} width={300} src={logo}/>
             </Form.Item>
             <Form.Item name="uname" rules={[{ required: true, message: 'Please input your Username!' }]}>
                 <Input prefix={<UserOutlined />} placeholder="Username" />

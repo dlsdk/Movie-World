@@ -1,0 +1,25 @@
+.post{
+    background-color: rgba(32, 32, 32, 32);
+    height: 100vh;
+    color: white;
+}
+
+.title{
+    margin: 0;
+    padding-top: 5rem;
+}
+
+.detailcontainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imagediv{
+
+
+}
+
+.img{
+    margin: 4rem 0 0 0;
+}

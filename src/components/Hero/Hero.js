@@ -17,7 +17,7 @@ export default function Hero() {
   // const movieGenres = getGenresNameById(genresList,mostRated?.genre_ids);
 
   const handleClick = (id) =>{
-    navigate(`/blog/post/:${id}`)
+    navigate(`/blog/post/${id}`, { state: mostRated  })
   }
   return (
     <>

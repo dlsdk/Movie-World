@@ -12,10 +12,7 @@ export default function Home() {
   const topRatedList = useSelector(selectTopRatedList);
   const popularList = useSelector(selectPopularList);
   const trendList = useSelector(selectTrendList);
-
-  console.log("Popular list nedir : ", popularList)
-
-
+  
   return (
     <div>
     <Hero/>
