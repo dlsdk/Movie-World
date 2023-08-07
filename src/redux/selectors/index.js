@@ -3,13 +3,17 @@ import * as Popular from "./Popular"
 import * as TopRated from './TopRated'
 import * as Trend from './Trend'
 import * as Genres from './Genres'
+import * as Reviews from './ReviewsSelectors'
+import * as Movie from './MovieSelector'
 
 const selectors = {
     SiteSelectors,
     Popular,
     TopRated,
     Trend,
-    Genres
+    Genres,
+    Reviews,
+    Movie
 }
 
 export default selectors;

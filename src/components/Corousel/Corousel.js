@@ -8,7 +8,7 @@ export default function Corousel({ list, title }) {
 
   const navigate = useNavigate();
   const carouselRef = useRef(null);
-
+  
   const handlePrev = () => {
     carouselRef.current.prev();
   };
@@ -35,7 +35,7 @@ export default function Corousel({ list, title }) {
           >
             {list &&
               list.map((listElement, index) => (
-                <Card className={style.cards} key={index} onClick={() => navigate(`/blog/post/${listElement.id}`, { state: listElement  })}>
+                <Card className={style.cards} key={index} onClick={() => navigate(`/blog/post/${listElement.id}`, { state: listElement })}>
                   <img
                     className={style.images}
                     alt="example"

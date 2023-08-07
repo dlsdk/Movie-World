@@ -1,0 +1,28 @@
+.title{
+    margin-bottom: 5px;
+}
+
+.info{
+    text-align: start;
+    width: 45rem;
+}
+.ratingcontainer{
+    display: flex;
+    align-items: center;
+   
+}
+
+.ratinginfo{
+    font-size: 16px;
+    margin-left: 1rem;
+}
+.ul{
+    padding: 0;
+}
+.genrelist{
+    display: inline-block;
+    margin-right: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+}

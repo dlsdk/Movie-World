@@ -4,22 +4,24 @@
     color: white;
 }
 
-.title{
-    margin: 0;
-    padding-top: 5rem;
-}
+
 
 .detailcontainer{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.imagediv{
-
-
+    justify-content:center;
+ 
 }
 
 .img{
-    margin: 4rem 0 0 0;
+    margin-left: 80px;
+    margin-top: 120px;
 }
+
+.infocontainer{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   margin-top: 100px;
+   margin-left: 160px;
+}
+

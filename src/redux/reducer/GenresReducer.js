@@ -3,7 +3,7 @@ import {GET_GENRES_ERROR,GET_GENRES_PENDING,GET_GENRES_SUCCESS} from '../actiont
 const initialState = {
     genresList: [],
     error : '',
-    isLoad: false,
+    isLoading:false,
 }
 
 const genresReducer = (state=initialState,action) => {
@@ -13,19 +13,19 @@ const genresReducer = (state=initialState,action) => {
         case GET_GENRES_PENDING:
             return {
                 ...state,
-                isLoad: true,
+                isLoading:true,
             }
         case GET_GENRES_SUCCESS:
             return {
                 ...state,
                 genresList: action.data,
-                isLoad: false,
+                isLoading:false,
             };
         case GET_GENRES_ERROR:
             return {
                 ...state,
                 error: action.error,
-                isLoad: false,
+                isLoading:false,
             }
         default:
             return state;

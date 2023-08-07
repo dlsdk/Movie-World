@@ -24,7 +24,7 @@ const getPopularSuccess = (data) => {
 
 const getPopular = () => dispatch => {
     dispatch(getPopularPending());
-    axios.get('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc',options).then((response) => {
+    axios.get('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',options).then((response) => {
         dispatch(getPopularSuccess(response.data.results))
     }
     ).catch(error => {

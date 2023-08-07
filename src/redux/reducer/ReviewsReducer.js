@@ -1,27 +1,27 @@
-import {GET_TREND_ERROR, GET_TREND_PENDING, GET_TREND_SUCCESS} from '../actiontypes/TrendingActionTypes'
+import {GET_REVIEWS_PENDING,GET_REVIEWS_ERROR,GET_REVIEWS_SUCCESS} from '../actiontypes/ReviewsActionTypes'
 
 const initialState = {
-    trendList: [],
+    reviewsList: [],
     error : '',
     isLoading:false,
 }
 
-const trendReducer = (state=initialState,action) => {
+const reviewsReducer = (state=initialState,action) => {
 
     switch(action.type)
     {
-        case GET_TREND_PENDING:
+        case GET_REVIEWS_PENDING:
             return {
                 ...state,
                 isLoading:true,
             }
-        case GET_TREND_SUCCESS:
+        case GET_REVIEWS_SUCCESS:
             return {
                 ...state,
-                trendList: action.data,
+                reviewsList: action.data,
                 isLoading:false,
             };
-        case GET_TREND_ERROR:
+        case GET_REVIEWS_ERROR:
             return {
                 ...state,
                 error: action.error,
@@ -32,4 +32,4 @@ const trendReducer = (state=initialState,action) => {
     }
 }
 
-export default trendReducer;
+export default reviewsReducer;

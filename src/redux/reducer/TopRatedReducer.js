@@ -3,7 +3,7 @@ import {GET_TOPRATED_ERROR,GET_TOPRATED_PENDING,GET_TOPRATED_SUCCESS} from '../a
 const initialState = {
     topRatedList: [],
     error : '',
-    isLoad: false,
+    isLoading:false,
 }
 
 const topRatedReducer = (state=initialState,action) => {
@@ -13,19 +13,19 @@ const topRatedReducer = (state=initialState,action) => {
         case GET_TOPRATED_PENDING:
             return {
                 ...state,
-                isLoad: true,
+                isLoading:true,
             }
         case GET_TOPRATED_SUCCESS:
             return {
                 ...state,
                 topRatedList: action.data,
-                isLoad: false,
+                isLoading:false,
             };
         case GET_TOPRATED_ERROR:
             return {
                 ...state,
                 error: action.error,
-                isLoad: false,
+                isLoading:false,
             }
         default:
             return state;

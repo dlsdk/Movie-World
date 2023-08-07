@@ -1,0 +1,19 @@
+.title{
+    color:rgb(204, 202, 202);
+    margin-top: 5px;
+    padding: 0;
+}
+
+.listmeta{
+    align-items: center;
+    text-align: start;
+}
+
+.metatitle{
+    color: white;
+}
+.list{
+    color: white;
+    padding-right: 4rem;
+    text-align: start;
+}

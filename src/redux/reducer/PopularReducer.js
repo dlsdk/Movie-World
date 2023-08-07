@@ -3,7 +3,7 @@ import {GET_POPULAR_PENDING, GET_POPULAR_SUCCESS, GET_POPULAR_ERROR} from '../ac
 const initialState = {
     popularList: [],
     error : '',
-    isLoad: false,
+    isLoading:false,
 }
 
 const popularReducer = (state=initialState,action) => {
@@ -13,19 +13,19 @@ const popularReducer = (state=initialState,action) => {
         case GET_POPULAR_PENDING:
             return {
                 ...state,
-                isLoad: true,
+                isLoading:true,
             }
         case GET_POPULAR_SUCCESS:
             return {
                 ...state,
                 popularList: action.data,
-                isLoad: false,
+                isLoading:false,
             };
         case GET_POPULAR_ERROR:
             return {
                 ...state,
                 error: action.error,
-                isLoad: false,
+                isLoading:false,
             }
         default:
             return state;

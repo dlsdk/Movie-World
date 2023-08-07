@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom'
 import { Button, Form, Input , Image} from 'antd';
 import { UserOutlined,LockOutlined } from '@ant-design/icons'
 import styles from './Auth.module.css'
-import logo from '../../logo/Color logo - no background.png'
+import logo from '../../images/logo/Color logo - no background.png'
 
 const {SiteActions: {setCurrentUser,deleteCurrentUser}} = Actions
 const {getFromLocalStorage} = helperFunctions
@@ -17,7 +17,6 @@ export default function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     dispatch(deleteCurrentUser());
-    const location = useLocation()
     const [form] = Form.useForm();
     localStorage.removeItem('currentUser')
     
@@ -29,12 +28,11 @@ export default function Login() {
             if (password === user.password){
                 dispatch(setCurrentUser(user));  
                 localStorage.setItem('currentUser',JSON.stringify(user));
-                navigate(location.state || '/');
+                navigate('/');   
             }
             else{
                 alert("Password Wrong")
             }
-           
         }
         else{
             alert("Please Register First")

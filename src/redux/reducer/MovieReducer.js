@@ -1,27 +1,27 @@
-import {GET_TREND_ERROR, GET_TREND_PENDING, GET_TREND_SUCCESS} from '../actiontypes/TrendingActionTypes'
+import {GET_MOVIE_ERROR,GET_MOVIE_PENDING,GET_MOVIE_SUCCESS} from '../actiontypes/MovieDetail'
 
 const initialState = {
-    trendList: [],
+    movie: {},
     error : '',
     isLoading:false,
 }
 
-const trendReducer = (state=initialState,action) => {
+const movieReducer = (state=initialState,action) => {
 
     switch(action.type)
     {
-        case GET_TREND_PENDING:
+        case GET_MOVIE_PENDING:
             return {
                 ...state,
                 isLoading:true,
             }
-        case GET_TREND_SUCCESS:
+        case GET_MOVIE_SUCCESS:
             return {
                 ...state,
-                trendList: action.data,
+                movie: action.data,
                 isLoading:false,
             };
-        case GET_TREND_ERROR:
+        case GET_MOVIE_ERROR:
             return {
                 ...state,
                 error: action.error,
@@ -32,4 +32,4 @@ const trendReducer = (state=initialState,action) => {
     }
 }
 
-export default trendReducer;
+export default movieReducer;
