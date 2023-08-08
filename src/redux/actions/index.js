@@ -5,6 +5,7 @@ import popularActions from "./PopularActions";
 import genresActions from "./GenresActions";
 import reviewsActions from "./ReviewsActions";
 import movieActions from "./MovieActions";
+import similarActions from "./SimilarActions";
 
 
 const Actions = {
@@ -15,6 +16,7 @@ const Actions = {
     genresActions,
     reviewsActions,
     movieActions,
+    similarActions
 };
 
 export default Actions;

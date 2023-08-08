@@ -1,4 +1,4 @@
-import {GET_REVIEWS_PENDING, GET_REVIEWS_SUCCESS, GET_REVIEWS_ERROR} from '../actiontypes/ReviewsActionTypes'
+import {GET_REVIEWS_PENDING, GET_REVIEWS_SUCCESS, GET_REVIEWS_ERROR, ADD_REVIEW} from '../actiontypes/ReviewsActionTypes'
 import axios from "axios";
 import { options } from "../../helpers";
 
@@ -22,6 +22,13 @@ const getReviewsSuccess = (data) => {
     }
 }
 
+const addReview = (data) => {
+    return {
+        type: ADD_REVIEW,
+        data
+    }
+}
+
 
 const getReviews = (movie_id) => dispatch => {
     dispatch(getReviewsPending());
@@ -36,6 +43,6 @@ const getReviews = (movie_id) => dispatch => {
  }
  
 
-const reviewsActions = {getReviews};
+const reviewsActions = {getReviews,addReview};
 export default reviewsActions;
 

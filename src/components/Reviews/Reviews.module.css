@@ -2,8 +2,12 @@
     color:rgb(204, 202, 202);
     margin-top: 5px;
     padding: 0;
+    text-align: start;
 }
-
+.review{
+    position: absolute;
+    bottom: -25px;
+}
 .listmeta{
     align-items: center;
     text-align: start;
@@ -16,4 +20,5 @@
     color: white;
     padding-right: 4rem;
     text-align: start;
+
 }

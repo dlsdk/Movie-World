@@ -5,23 +5,24 @@ import { useDispatch,useSelector } from 'react-redux';
 import Actions from '../../redux/actions';
 import selectors from '../../redux/selectors';
 import ReviewList from './ReviewList';
-import {Alert, Space, Spin  } from  'antd'
+import { Spin  } from  'antd'
 
 const {Reviews: {selectReview,selectReviewPending}} = selectors
 const {reviewsActions: {getReviews}} = Actions
 
 export default function Reviews({id}) {
   
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();     
+   
+    const isLoading = useSelector(selectReviewPending);
     useEffect(() => {
         dispatch(getReviews(id)); 
-    },[id]) 
-    
+    },[id || reviewList]) 
     const reviewList = useSelector(selectReview); 
-    const isLoading = useSelector(selectReviewPending);
 
   return (
     <>
+       <div className={style.review}>
         <h3 className={style.title}>Reviews</h3>
        {isLoading ?  
         <Spin tip="Loading...">
@@ -29,6 +30,8 @@ export default function Reviews({id}) {
         </Spin>
         :
         <ReviewList reviewList={reviewList}/> } 
+       </div>
+      
     </>  
     )
 }

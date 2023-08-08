@@ -1,14 +1,17 @@
 import React, { useRef } from 'react';
-import { Carousel, Card } from 'antd';
+import { Carousel, Card , Image} from 'antd';
 import style from './Corousel.module.css';
-import { ArrowRightOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, ArrowLeftOutlined, UserAddOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import noimage from '../../images/post/noimage.png'
 
 export default function Corousel({ list, title }) {
 
+  console.log("Corousele gelen list : ", list)
+
   const navigate = useNavigate();
   const carouselRef = useRef(null);
-  
+
   const handlePrev = () => {
     carouselRef.current.prev();
   };
@@ -36,10 +39,10 @@ export default function Corousel({ list, title }) {
             {list &&
               list.map((listElement, index) => (
                 <Card className={style.cards} key={index} onClick={() => navigate(`/blog/post/${listElement.id}`, { state: listElement })}>
-                  <img
+                  <Image preview={false}
                     className={style.images}
                     alt="example"
-                    src={`https://image.tmdb.org/t/p/w780${listElement.poster_path}`}
+                    src={listElement.poster_path ? `https://image.tmdb.org/t/p/w780${listElement.poster_path}` : noimage}
                   />
                   <h3 className={style.title}>{listElement.title}</h3>
                 </Card>

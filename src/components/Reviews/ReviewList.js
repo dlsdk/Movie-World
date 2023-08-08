@@ -10,14 +10,14 @@ export default function ReviewList({reviewList}) {
         <List className={style.list}>
             <VirtualList
                 data={reviewList}
-                height={300}
+                height={178} // 300 idi
                 itemKey="username" 
             >
             {(item) => (
             <>
                 <List.Item  key={item.author_details.name}>
                     <List.Item.Meta className={style.listmeta} 
-                        avatar={<Avatar icon={<UserOutlined/>} size={90} src={`https://image.tmdb.org/t/p/w780${item.author_details.avatar_path}`} />}
+                        avatar={<Avatar icon={<UserOutlined/>} size={80} src={`https://image.tmdb.org/t/p/w780${item.author_details.avatar_path}`} />}
                         title={<h3 className={style.metatitle}>{item.author_details.username}</h3>}/>
                 </List.Item>
                 <p>{item.content}</p>
@@ -26,7 +26,7 @@ export default function ReviewList({reviewList}) {
              </VirtualList>
         </List>
             : 
-        <Alert message="Can't find any review. You can write first !" type="warning" closable/>}
+        <Alert style={{width:'-webkit-fill-available'}}  showIcon message="Can't find any review. You can write first !" type="warning"/>}
        </>
   )
 }

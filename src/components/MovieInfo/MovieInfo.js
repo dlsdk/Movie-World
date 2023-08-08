@@ -26,7 +26,7 @@ export default function MovieInfo({movie}) {
                 <Rating value={movie.vote_average.toFixed(1)} size='medium' readOnly precision={0.1} max={10}  sx={{'& .MuiRating-iconFilled': {color: 'orange',},'& .MuiRating-iconEmpty': {color: 'orange',}}} />
                 <p className={style.ratinginfo}>({movie.vote_average.toFixed(1)})</p>
             </div>
-            <p>{movie.overview}</p>
+            <p className={style.overview}>{movie.overview}</p>
             <ul  className={style.ul}>
               { movieGenreList && movieGenreList.map((listElement, index) => (
                 <li className={style.genrelist} key={index}>{listElement}</li>

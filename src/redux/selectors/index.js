@@ -5,6 +5,7 @@ import * as Trend from './Trend'
 import * as Genres from './Genres'
 import * as Reviews from './ReviewsSelectors'
 import * as Movie from './MovieSelector'
+import * as Similar from './SimilarSelectors'
 
 const selectors = {
     SiteSelectors,
@@ -13,7 +14,8 @@ const selectors = {
     Trend,
     Genres,
     Reviews,
-    Movie
+    Movie,
+    Similar
 }
 
 export default selectors;

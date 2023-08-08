@@ -1,27 +1,27 @@
-import {GET_MOVIE_ERROR,GET_MOVIE_PENDING,GET_MOVIE_SUCCESS} from '../actiontypes/MovieDetail'
+import {GET_SIMILAR_ERROR,GET_SIMILAR_PENDING,GET_SIMILAR_SUCCESS} from '../actiontypes/SimilarActionTypes'
 
 const initialState = {
-    movie: [],
+    similarList: [],
     error : '',
     isLoading:false,
 }
 
-const movieReducer = (state=initialState,action) => {
+const similarReducer = (state=initialState,action) => {
 
     switch(action.type)
     {
-        case GET_MOVIE_PENDING:
+        case GET_SIMILAR_PENDING:
             return {
                 ...state,
                 isLoading:true,
             }
-        case GET_MOVIE_SUCCESS:
+        case GET_SIMILAR_SUCCESS:
             return {
                 ...state,
-                movie: action.data,
+                similarList: action.data,
                 isLoading:false,
             };
-        case GET_MOVIE_ERROR:
+        case GET_SIMILAR_ERROR:
             return {
                 ...state,
                 error: action.error,
@@ -32,4 +32,4 @@ const movieReducer = (state=initialState,action) => {
     }
 }
 
-export default movieReducer;
+export default similarReducer;
