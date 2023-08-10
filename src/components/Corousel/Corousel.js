@@ -7,7 +7,6 @@ import noimage from '../../images/post/noimage.png'
 
 export default function Corousel({ list, title }) {
 
-  console.log("Corousele gelen list : ", list)
 
   const navigate = useNavigate();
   const carouselRef = useRef(null);

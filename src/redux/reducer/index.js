@@ -6,6 +6,7 @@ import genresReducer from "./GenresReducer";
 import reviewsReducer from "./ReviewsReducer";
 import movieReducer from "./MovieReducer";
 import similarReducer from "./SimilarReducer";
+import controlReviewReducer from "./ControlReviewReducer";
 import { combineReducers } from "redux";
 
 const reducers = combineReducers({
@@ -16,7 +17,8 @@ const reducers = combineReducers({
     genresReducer,
     reviewsReducer,
     movieReducer,
-    similarReducer
+    similarReducer,
+    controlReviewReducer
 });
 
 export default reducers;

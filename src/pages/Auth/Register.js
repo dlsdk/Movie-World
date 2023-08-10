@@ -8,7 +8,7 @@ import { UserOutlined,LockOutlined } from '@ant-design/icons'
 import styles from './Auth.module.css'
 
 const {SiteActions: {addUser,deleteCurrentUser}} = Actions 
-const {getAllLocalStorageValues} = helperFunctions
+const {getFromLocalStorage, getAllLocalStorageValues} = helperFunctions
 
 
 export default function Register() {
@@ -23,7 +23,7 @@ export default function Register() {
         const id = localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
         
         if (password === confirmpass){
-            const user = JSON.parse(localStorage.getItem(`user_${uname}`))
+            const user =  getFromLocalStorage(`user_${uname}`)
             if (user){
                 alert("Already have account");
             }

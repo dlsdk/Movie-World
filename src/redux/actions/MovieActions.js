@@ -25,9 +25,7 @@ const getMovieSuccess = (data) => {
 
 const getMovie = (movie_id) => dispatch => {
     dispatch(getMoviePending());
-    console.log(movie_id)
     axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`,options).then((response) => {
-        console.log("Data : ",response.data)
         dispatch(getMovieSuccess(response.data))
     }
     ).catch(error => {

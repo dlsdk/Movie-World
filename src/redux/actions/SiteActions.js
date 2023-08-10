@@ -10,7 +10,6 @@ export const addUser = (user) => {
 }
 
 export const deleteUser = (payload) => {
-    console.log("ACTİONDA",payload)
     return {
         type: DELETE_USER,
         payload

@@ -25,11 +25,8 @@ const getTopRatedSuccess = (data) => {
 
 const getTopRated = () => dispatch => {
     dispatch(getTopRatedPending());
-    axios.get("https://api.themoviedb.org/3/movie/top_rated",options).then((response) => 
-    {
-        console.log(response.data.results);
+    axios.get("https://api.themoviedb.org/3/movie/top_rated",options).then((response) => {
         dispatch(getTopRatedSuccess(response.data.results))
-
     }
     ).catch(error => {
         dispatch(getTopRatedError(error))

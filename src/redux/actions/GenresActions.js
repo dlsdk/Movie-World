@@ -26,7 +26,6 @@ const getGenresSuccess = (data) => {
 const getGenres = () => dispatch => {
     dispatch(getGenresPending());
     axios.get('https://api.themoviedb.org/3/genre/movie/list?language=en',options).then((response) => {
-        console.log("genres ", response.data.genres)
         dispatch(getGenresSuccess(response.data.genres))
     }
     ).catch(error => {

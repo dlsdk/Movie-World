@@ -16,8 +16,13 @@ const getGenresNameById = (genres,movieGenderIds) => {
     return genres.filter(genre => movieGenderIds.includes(genre.id)).map(genre => genre.name);
 }
 
+const updatedReviewList = (reviewList,myAddedReviews,id) => {
+    const matchingReview = myAddedReviews.find(review => review.id === id);
+    return matchingReview ? [...reviewList, matchingReview] : reviewList;
+}
+
 const helperFunctions = {
-    getUserWithUname,getUserWithId,getFromLocalStorage, getAllLocalStorageValues, getGenresNameById
+    getUserWithUname,getUserWithId,getFromLocalStorage, getAllLocalStorageValues, getGenresNameById,updatedReviewList
 }
 
 export default helperFunctions;

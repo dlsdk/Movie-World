@@ -14,7 +14,8 @@ export default function ReviewList({reviewList}) {
                 itemKey="username" 
             >
             {(item) => (
-            <>
+             
+            <> 
                 <List.Item  key={item.author_details.name}>
                     <List.Item.Meta className={style.listmeta} 
                         avatar={<Avatar icon={<UserOutlined/>} size={80} src={`https://image.tmdb.org/t/p/w780${item.author_details.avatar_path}`} />}

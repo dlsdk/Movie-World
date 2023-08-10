@@ -1,4 +1,4 @@
-import {GET_REVIEWS_PENDING, GET_REVIEWS_SUCCESS, GET_REVIEWS_ERROR, ADD_REVIEW} from '../actiontypes/ReviewsActionTypes'
+import {GET_REVIEWS_PENDING, GET_REVIEWS_SUCCESS, GET_REVIEWS_ERROR,UPDATE_REVIEWS} from '../actiontypes/ReviewsActionTypes'
 import axios from "axios";
 import { options } from "../../helpers";
 
@@ -22,19 +22,18 @@ const getReviewsSuccess = (data) => {
     }
 }
 
-const addReview = (data) => {
+const getUpdatedReviews = (data) => {
     return {
-        type: ADD_REVIEW,
+        type: UPDATE_REVIEWS,
         data
     }
 }
 
 
+
 const getReviews = (movie_id) => dispatch => {
     dispatch(getReviewsPending());
-    console.log(movie_id)
     axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/reviews?language=en-US&page=1`,options).then((response) => {
-        console.log("Data : ",response.data.results)
         dispatch(getReviewsSuccess(response.data.results))
     }
     ).catch(error => {
@@ -43,6 +42,6 @@ const getReviews = (movie_id) => dispatch => {
  }
  
 
-const reviewsActions = {getReviews,addReview};
+const reviewsActions = {getReviews,getUpdatedReviews};
 export default reviewsActions;
 

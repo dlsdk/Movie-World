@@ -6,6 +6,7 @@ import * as GenresActionTypes from './GenreActionTypes'
 import * as ReviewsActionTypes from './ReviewsActionTypes'
 import * as MovieActionTypes from './MovieDetail'
 import * as Similar from './SimilarActionTypes'
+import * as ControlReview from './ControlReviewActionTypes'
 
 const ActionTypes = {
     siteActionTypes,
@@ -15,7 +16,8 @@ const ActionTypes = {
     GenresActionTypes,
     ReviewsActionTypes,
     MovieActionTypes,
-    Similar
+    Similar,
+    ControlReview
 }
 
 export default ActionTypes;

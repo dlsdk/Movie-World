@@ -2,8 +2,8 @@
     margin-bottom: 5px;
 }
 .overview{
-    max-height: calc(100vh - 670px); /* Ana yapının içinde rahatça sığacak bir değer */
-  overflow-y:scroll;
+    max-height: calc(100vh - 660px); /* Ana yapının içinde rahatça sığacak bir değer */
+    overflow-y:scroll;
 }
 .info{
     text-align: start;

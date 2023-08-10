@@ -16,7 +16,6 @@ export default function Profile() {
   const navigate = useNavigate();
   
   const users = useSelector(selectUsers);
-  console.log("USERS",users);
   
   const handleLogout = () =>{
     localStorage.removeItem('currentUser'); 

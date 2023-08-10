@@ -23,12 +23,9 @@ export default function Post() {
   const dispatch = useDispatch();
  
   useEffect(() => {
-    console.log("SIMILAR ICIN USEEFECTE GİRDİ VE İD ŞU ", movie.id)
     dispatch(getSimilarMovies(movie.id))
   }, [movie.id])
   
-
-  console.log("POST SAYFASI MOVIE : ",movie);
   const similarList = useSelector(selectSimilarMovies);
   const isSimilarLoading = useSelector(selectSimilarPending);
 
@@ -41,7 +38,7 @@ export default function Post() {
         <div className={style.infocontainer}>
           <MovieInfo movie={movie}/>
           <Reviews id={movie.id}/>
-          <AddReview/>
+          <AddReview id={movie.id}/>
         </div>
       </div> 
     </div>}

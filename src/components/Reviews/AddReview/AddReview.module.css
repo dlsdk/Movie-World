@@ -1,0 +1,14 @@
+.addreview{
+    color:white;
+}
+
+.textarea{
+    width: 500px;
+    position: absolute;
+    bottom: -120px;
+}
+.button{
+    right: 110px;
+    width: min-content;
+    background-color:rgb(203, 14, 14)!important;
+}

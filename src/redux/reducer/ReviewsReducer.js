@@ -1,4 +1,4 @@
-import {GET_REVIEWS_PENDING,GET_REVIEWS_ERROR,GET_REVIEWS_SUCCESS,ADD_REVIEW} from '../actiontypes/ReviewsActionTypes'
+import {GET_REVIEWS_PENDING,GET_REVIEWS_ERROR,GET_REVIEWS_SUCCESS,UPDATE_REVIEWS} from '../actiontypes/ReviewsActionTypes'
 
 const initialState = {
     reviewsList: [],
@@ -27,11 +27,12 @@ const reviewsReducer = (state=initialState,action) => {
                 error: action.error,
                 isLoading:false,
             }
-        case ADD_REVIEW:
-            return{
+        case UPDATE_REVIEWS:
+            return {
                 ...state,
-                reviewsList: [...state.reviewsList, action.data]
-            };
+                reviewsList: action.data,
+                isLoading:false
+            }
         default:
             return state;
     }

@@ -22,8 +22,7 @@ export default function Login() {
     
     const handleSubmit = (values) => {
         const {uname, password} = values;
-        const user = getFromLocalStorage(`user_${uname}`)
-        console.log(values)
+        const user = getFromLocalStorage(`user_${uname}`);
         if (user){
             if (password === user.password){
                 dispatch(setCurrentUser(user));  

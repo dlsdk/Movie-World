@@ -24,11 +24,8 @@ const getTrendSuccess = (data) => {
 
 const getTrend = () => dispatch => {
     dispatch(getTrendPending());
-    axios.get('https://api.themoviedb.org/3/trending/movie/day',options).then((response) => 
-    {
-        console.log(response.data.results);
+    axios.get('https://api.themoviedb.org/3/trending/movie/day',options).then((response) => {
         dispatch(getTrendSuccess(response.data.results))
-
     }
     ).catch(error => {
         dispatch(getTrendError(error))

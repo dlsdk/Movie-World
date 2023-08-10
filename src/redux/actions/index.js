@@ -6,6 +6,7 @@ import genresActions from "./GenresActions";
 import reviewsActions from "./ReviewsActions";
 import movieActions from "./MovieActions";
 import similarActions from "./SimilarActions";
+import controlReviewAction from "./ControlReviewAction";
 
 
 const Actions = {
@@ -16,7 +17,8 @@ const Actions = {
     genresActions,
     reviewsActions,
     movieActions,
-    similarActions
+    similarActions,
+    controlReviewAction
 };
 
 export default Actions;

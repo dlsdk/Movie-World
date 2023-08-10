@@ -19,8 +19,6 @@ const SiteReducer = (state=initialState,action) => {
         case DELETE_USER:
             const newUsers = {...state.users};
             delete newUsers[action.payload.id];
-            console.log("USERS NE REDUCERDA ",state.users)
-            console.log("action : ",action.payload.id)
             return {
                 ...state,
                 users: newUsers,

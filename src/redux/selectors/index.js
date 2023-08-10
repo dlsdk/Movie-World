@@ -6,6 +6,7 @@ import * as Genres from './Genres'
 import * as Reviews from './ReviewsSelectors'
 import * as Movie from './MovieSelector'
 import * as Similar from './SimilarSelectors'
+import * as ControlReviews from './ControlReviews'
 
 const selectors = {
     SiteSelectors,
@@ -15,7 +16,8 @@ const selectors = {
     Genres,
     Reviews,
     Movie,
-    Similar
+    Similar,
+    ControlReviews
 }
 
 export default selectors;
