@@ -7,6 +7,7 @@ import reviewsActions from "./ReviewsActions";
 import movieActions from "./MovieActions";
 import similarActions from "./SimilarActions";
 import controlReviewAction from "./ControlReviewAction";
+import searchActions from "./SearchActions";
 
 
 const Actions = {
@@ -18,7 +19,8 @@ const Actions = {
     reviewsActions,
     movieActions,
     similarActions,
-    controlReviewAction
+    controlReviewAction,
+    searchActions
 };
 
 export default Actions;

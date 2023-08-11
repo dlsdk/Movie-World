@@ -7,6 +7,7 @@ import * as ReviewsActionTypes from './ReviewsActionTypes'
 import * as MovieActionTypes from './MovieDetail'
 import * as Similar from './SimilarActionTypes'
 import * as ControlReview from './ControlReviewActionTypes'
+import * as SearchActionTypes from './SearchActionTypes'
 
 const ActionTypes = {
     siteActionTypes,
@@ -17,7 +18,8 @@ const ActionTypes = {
     ReviewsActionTypes,
     MovieActionTypes,
     Similar,
-    ControlReview
+    ControlReview,
+    SearchActionTypes,
 }
 
 export default ActionTypes;

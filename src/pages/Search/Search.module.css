@@ -1,0 +1,20 @@
+.search{
+    background-color: rgba(32, 32, 32, 32);
+    height: 100vh;
+    color: white;
+    text-align: start;
+}
+.container{
+    padding: 100px 20px 10px 30px;
+}
+
+.searchbar{
+    width: 30%;
+    margin-left: 7rem;
+}
+
+.alert{
+    width: fit-content;
+    margin-left: 7rem;
+    margin-top: 0.5rem;
+}

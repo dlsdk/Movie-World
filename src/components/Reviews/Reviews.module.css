@@ -2,23 +2,26 @@
     color:rgb(204, 202, 202);
     margin-top: 5px;
     padding: 0;
-    text-align: start;
+    text-align: start!important;
 }
 .review{
-    position: absolute;
+    position: absolute!important;
     bottom: -25px;
 }
 .listmeta{
-    align-items: center;
-    text-align: start;
+    align-items: center!important;
+    text-align: start!important;
 }
 
 .metatitle{
     color: white;
+    display: inline-block;
+    margin-left: 2rem;
 }
 .list{
     color: white;
-    padding-right: 4rem;
-    text-align: start;
+    padding-right: 4rem!important;
+    text-align:start !important;
+ 
 
-}
+}   

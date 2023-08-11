@@ -1,7 +1,7 @@
 import React from 'react'
 import BlogLayout from '../pages/Blog/BlogLayout'
 import Home from '../pages/Home/Home'
-import Contact from '../pages/Contact/Contact'
+import Search from '../pages/Search/Search'
 import Categories from '../pages/Blog/Categories'
 import Blog from '../pages/Blog/Blog'
 import Post from '../pages/Blog/Post/Post'
@@ -24,8 +24,8 @@ const routes = [
                 element: <Home/>
             },
             {
-                path: 'contact',
-                element: <Contact/>
+                path: 'search',
+                element: <Search/>
             },
             {
                 path: 'blog',

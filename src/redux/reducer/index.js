@@ -7,6 +7,7 @@ import reviewsReducer from "./ReviewsReducer";
 import movieReducer from "./MovieReducer";
 import similarReducer from "./SimilarReducer";
 import controlReviewReducer from "./ControlReviewReducer";
+import searchReducer from "./SearchReducer";
 import { combineReducers } from "redux";
 
 const reducers = combineReducers({
@@ -18,7 +19,8 @@ const reducers = combineReducers({
     reviewsReducer,
     movieReducer,
     similarReducer,
-    controlReviewReducer
+    controlReviewReducer,
+    searchReducer
 });
 
 export default reducers;

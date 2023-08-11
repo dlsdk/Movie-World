@@ -1,0 +1,4 @@
+export const SEARCH_PENDING = "SEARCH_PENDING"
+export const SEARCH_SUCCESS = "SEARCH_SUCCESS"
+export const SEARCH_ERROR = 'SEARCH_ERROR'
+

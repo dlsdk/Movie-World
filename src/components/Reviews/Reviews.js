@@ -9,7 +9,7 @@ import { Spin } from 'antd';
 import helperFunctions from '../../helpers';
 
 const { Reviews: { selectReview, selectReviewPending }, ControlReviews: { selectControlReviews } } = selectors;
-const { reviewsActions: { getReviews, getUpdatedReviews } } = Actions;
+const { reviewsActions: { getReviews } } = Actions;
 const {getFromLocalStorage} = helperFunctions;
 
 
@@ -19,26 +19,21 @@ export default function Reviews({ id }) {
     const isLoading = useSelector(selectReviewPending);
     const matchingReview = controlReviews.find(review => review.id === id); // benim yazdığım yorumun bu filmin  için mi yazmışım buluyorum.
     const [totalList,setNewTotalList] = useState([]);
-    const [isDataFromApi,setIsDataFromAPi] = useState(false);
-
-
-const storedData = getFromLocalStorage(`review_${id}`) ;
-const initialDataFromLocal = storedData ? Object.values(storedData) : [];
-const [dataFromLocal, setDataFromLocal] = useState(initialDataFromLocal);
     
-useEffect(()=> {    
-  setDataFromLocal(initialDataFromLocal)
-    console.log("Current ID:", id); 
-    setNewTotalList([]);
+    const storedData = getFromLocalStorage(`review_${id}`) ;
+    const initialDataFromLocal = storedData ? Object.values(storedData) : [];
+    const [dataFromLocal, setDataFromLocal] = useState(initialDataFromLocal);
+    
+    useEffect(()=> {    
+        console.log("api için girdi");
+        setDataFromLocal(initialDataFromLocal) 
+        setNewTotalList([]);
         dispatch(getReviews(id)); // HER TÜRLÜ BİR AL DATAYI
-      
-},[id])
+    },[id])
 
-const dataFromApi = useSelector(selectReview);
+    const dataFromApi = useSelector(selectReview);
 
-
-
-useEffect(()=> {
+    useEffect(()=> {
         if (dataFromLocal.length !== 0)//varsa ne null değilse
         {  
             setNewTotalList(dataFromLocal);
@@ -53,20 +48,16 @@ useEffect(()=> {
             localStorage.setItem(`review_${id}`,JSON.stringify(dataFromApi));
              
         }
-},[dataFromApi])
+    },[dataFromApi])
 
 
-useEffect(() => {
-    if (matchingReview) {
-        setNewTotalList([...totalList, matchingReview]); 
+    useEffect(() => {
+        if (matchingReview) {
+            setNewTotalList([...totalList, matchingReview]); 
            console.log("yeni değer : ",[...totalList,matchingReview] );
            localStorage.setItem(`review_${id}`,JSON.stringify([...totalList,matchingReview]));
-    }
-
-}, [matchingReview]);
-
-
-
+        }
+    }, [matchingReview]);
       
     return (
         <>
