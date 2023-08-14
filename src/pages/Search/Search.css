@@ -13,6 +13,11 @@
     margin-left: 7rem;
 }
 
+.searchbar .ant-btn{
+    background-color:rgb(203, 14, 14)!important;
+}
+   
+
 .alert{
     width: fit-content;
     margin-left: 7rem;

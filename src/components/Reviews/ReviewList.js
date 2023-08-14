@@ -14,19 +14,11 @@ export default function ReviewList({reviewList}) {
                 itemKey="username" 
             >
             {(item) => (
-             
-            <> 
-                {/* <List.Item  key={item.author_details.name}> */}
-                    
-                    {/* <List.Item.Meta className={style.listmeta} 
-                        avatar={<Avatar icon={<UserOutlined/>} size={80} src={`https://image.tmdb.org/t/p/w780${item.author_details.avatar_path}`} />}
-                        title={<h3 className={style.metatitle}>{item.author_details.username}</h3>}/>
-                 </List.Item> */}
                  <div>
                  <Avatar icon={<UserOutlined/>} size={80} src={`https://image.tmdb.org/t/p/w780${item.author_details.avatar_path}`} />
                  <h3 className={style.metatitle}>{item.author_details.username}</h3>
-                <p>{item.content}</p></div>
-               </>
+                <p>{item.content}</p>
+                </div>
             )}
              </VirtualList>
         </List>

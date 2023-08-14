@@ -2,8 +2,6 @@ import React from 'react'
 import BlogLayout from '../pages/Blog/BlogLayout'
 import Home from '../pages/Home/Home'
 import Search from '../pages/Search/Search'
-import Categories from '../pages/Blog/Categories'
-import Blog from '../pages/Blog/Blog'
 import Post from '../pages/Blog/Post/Post'
 import Page404 from '../pages/Page404/Page404'
 import BlogPage404 from '../pages/Blog/BlogPage404'
@@ -32,14 +30,6 @@ const routes = [
                 element: <BlogLayout/>,
                 auth: true,
                 children: [
-                    {
-                        index: true,
-                        element: <Blog/>
-                    },
-                    {
-                        path:'categories',
-                        element:<Categories/>
-                    },
                     {
                         path:'post/:url',
                         element: <Post/>

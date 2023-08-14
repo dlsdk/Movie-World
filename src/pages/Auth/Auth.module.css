@@ -13,10 +13,13 @@
 .p{
     color: antiquewhite;
 }
-
+.buttoncontainer{
+    margin-bottom: 0.5rem;
+}
 .button{
     background-color: rgb(203, 14, 14)!important;
 }
 .buttonlink{
     color: white!important;
 }
+

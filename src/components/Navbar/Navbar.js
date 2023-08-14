@@ -7,7 +7,6 @@ export default function Navbar() {
     <nav className={style.navbar}>
         <NavLink className={style.nav} to='/'>Home</NavLink>
         <NavLink className={style.nav} to='/search'>Search</NavLink>
-        <NavLink className={style.nav} to='/blog'>Blog</NavLink>
         <NavLink className={style.nav} to='/profile'>Profile</NavLink>
     </nav>
   )

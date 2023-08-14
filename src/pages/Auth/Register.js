@@ -53,10 +53,10 @@ export default function Register() {
             <Form.Item name="confirmpass" rules={[{ required: true, message: 'Please confirm your Password!' }]}>
                 <Input  prefix={<LockOutlined />} type="password" placeholder="Confirm Password"/>
             </Form.Item>
-            <Form.Item>
-            <Button className={styles.button} type='primary' htmlType="submit" >Create Account</Button>
+            <Form.Item className={styles.buttoncontainer}>
                 <Button className={styles.buttonlink} type='link' onClick={() => navigate('/auth/login')}>Go back to Login</Button>
-      </Form.Item>
+            </Form.Item>
+            <Button className={styles.button} type='primary' htmlType="submit" >Create Account</Button>
     </Form>
     </div>
   )

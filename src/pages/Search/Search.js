@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import style from './Search.module.css'
+import './Search.css'
 import { Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import Actions from '../../redux/actions'
@@ -19,30 +19,27 @@ export default function Search() {
   const trend = useSelector(selectTrendList);
   const [isSearchSuccess,setIsSearchSuccess] = useState(false);
 
-  const onSearch = (query) => { 
-    if (query){console.log("QUERY NE ",query)
+  const onSearch = (query) => {
+    let status = false;
+    if (query){
         dispatch(getFromSearch(query))
-        setIsSearchSuccess(true);
+        status = true;
     }
-    else{
-      setIsSearchSuccess(false);
-    }
-
-      
+    setIsSearchSuccess(status);
   }
 
   return (
-    <div className={style.search}>
-      <div className={style.container}>
+    <div className='search'>
+      <div className='container'>
         <Input.Search
           placeholder="search movie"
           allowClear
           enterButton="Search"
           size="large"
-          className={style.searchbar}
+          className='searchbar'
           onSearch={onSearch}
         />
-        {isSearchSuccess ? <SearchList searchList={searchList}/> :<> <Alert className={style.alert} showIcon type='warning' message="Please Search Movie First!"/>
+        {isSearchSuccess ? <SearchList searchList={searchList}/> :<> <Alert className='alert' showIcon type='warning' message="Please Search Movie First!"/>
         <SearchList searchList={trend}/>
         </>}
         

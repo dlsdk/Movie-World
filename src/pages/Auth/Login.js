@@ -53,10 +53,11 @@ export default function Login() {
             <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
                 <Input  prefix={<LockOutlined />} type="password" placeholder="Password"/>
             </Form.Item>
-            <Form.Item>
-                <Button className={styles.button} type='primary' htmlType="submit" >Log in</Button>
-                <Button  className={styles.buttonlink} type='link' onClick={() => navigate('/auth/register')}>Don't have an account?</Button>
+            <Form.Item className={styles.buttoncontainer}>
+                <Button type='link'className={styles.buttonlink} onClick={() => navigate('/auth/register')}>Don't have an account?</Button>
             </Form.Item>
+            <Button type='primary' className={styles.button} htmlType="submit" >Log in</Button>
+           
         </Form>
     </div>
       

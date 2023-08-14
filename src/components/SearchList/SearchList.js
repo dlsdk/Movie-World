@@ -14,12 +14,12 @@ export default function SearchList({searchList}) {
         <List className='list'>
             <VirtualList
                 data={searchList}
-                height={550} // 300 idi
+                height={520} // 300 idi
                 itemKey="username" 
             >
             {(item) => (
                 <List.Item  onClick={() => navigate(`/blog/post/${item.id}`, { state: item })} className='item' key={item.title}>
-                    <Image className='img' height={400} preview={false} src={item.poster_path ? `https://image.tmdb.org/t/p/w780${item.poster_path}` : noimage}/>
+                    <Image className='img' height={400} width={267} preview={false} src={item.poster_path ? `https://image.tmdb.org/t/p/w780${item.poster_path}` : noimage}/>
                     <div className="content">
                       <div className="text">
                         <h3>{item.title}</h3>
