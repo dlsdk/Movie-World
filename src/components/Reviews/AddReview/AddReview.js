@@ -17,7 +17,7 @@ export default function AddReview({id}) {
             id,
             author_details : {
                 username: user.uname,
-                avatar_path: null,
+                avatar_path: user.avatar_path,
             },
             content,
         }

@@ -3,6 +3,9 @@ import style from './Reviews.module.css'
 import {Avatar, List, Alert} from 'antd'
 import {UserOutlined} from '@ant-design/icons'
 import VirtualList from 'rc-virtual-list';
+import helperFunctions from '../../helpers';
+
+const {getFromLocalStorage}=helperFunctions
 
 export default function ReviewList({reviewList}) {
   return (<>
@@ -15,7 +18,7 @@ export default function ReviewList({reviewList}) {
             >
             {(item) => (
                  <div>
-                 <Avatar icon={<UserOutlined/>} size={80} src={`https://image.tmdb.org/t/p/w780${item.author_details.avatar_path}`} />
+                 <Avatar icon={<UserOutlined/>} size={80} src={item.author_details.username === getFromLocalStorage('currentUser')?.uname ? item.author_details.avatar_path :   `https://image.tmdb.org/t/p/w780${item.author_details.avatar_path}`} />
                  <h3 className={style.metatitle}>{item.author_details.username}</h3>
                 <p>{item.content}</p>
                 </div>

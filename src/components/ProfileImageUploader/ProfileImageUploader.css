@@ -1,0 +1,30 @@
+.updatediv{
+    margin-bottom: 2rem;
+}
+
+.updatediv .ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select{
+    width: 160px;
+    height: 160px;
+}
+.updatediv  .ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload-list.ant-upload-list-picture-circle .ant-upload-list-item-container{
+    width: 160px;
+    height: 160px
+}
+.upload{
+    color:white
+}
+.uploadtext{
+    margin-top: 15px;
+}
+.avatar{
+    width: 160px;
+    height: 160px;
+}
+
+.buttonupdate{
+    margin-top: 20px;
+}
+.buttonupdate:disabled{
+   background-color: gray;
+   color:rgb(80, 77, 77)
+}

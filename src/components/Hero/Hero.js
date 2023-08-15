@@ -6,15 +6,12 @@ import helperFunctions from '../../helpers'
 import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
-const {Genres: {selectGenresList} , TopRated: {selectTopRatedMost}} = selectors
-const {getGenresNameById} = helperFunctions
+const {TopRated: {selectTopRatedMost}} = selectors
 
 export default function Hero() {
 
   const mostRated = useSelector(selectTopRatedMost);
   const navigate = useNavigate();
-  // const genresList =  useSelector(selectGenresList);
-  // const movieGenres = getGenresNameById(genresList,mostRated?.genre_ids);
 
   const handleClick = (id) =>{
     navigate(`/blog/post/${id}`, { state: mostRated  })

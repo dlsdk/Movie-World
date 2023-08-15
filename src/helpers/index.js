@@ -12,6 +12,13 @@ const getAllLocalStorageValues = () => {
     return Object.values(localStorage).map(JSON.parse);
 }
 
+const setLocalstorage = (name,data) => {
+    localStorage.setItem(
+        name,
+        JSON.stringify(data)
+      );
+}
+
 const getGenresNameById = (genres,movieGenderIds) => {
     return genres.filter(genre => movieGenderIds.includes(genre.id)).map(genre => genre.name);
 }
@@ -22,7 +29,7 @@ const updatedReviewList = (reviewList,myAddedReviews,id) => {
 }
 
 const helperFunctions = {
-    getUserWithUname,getUserWithId,getFromLocalStorage, getAllLocalStorageValues, getGenresNameById,updatedReviewList
+    getUserWithUname,getUserWithId,getFromLocalStorage, getAllLocalStorageValues, getGenresNameById,updatedReviewList,setLocalstorage
 }
 
 export default helperFunctions;

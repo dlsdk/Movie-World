@@ -4,7 +4,7 @@ import Actions from '../../redux/actions'
 import { useDispatch} from 'react-redux'
 import helperFunctions from '../../helpers'
 import { useLocation } from 'react-router-dom'
-import { Button, Form, Input , Image} from 'antd';
+import { Button, Form, Input , Image, Modal} from 'antd';
 import { UserOutlined,LockOutlined } from '@ant-design/icons'
 import styles from './Auth.module.css'
 import logo from '../../images/logo/Color logo - no background.png'
@@ -30,11 +30,16 @@ export default function Login() {
                 navigate('/');   
             }
             else{
-                alert("Password Wrong")
+                Modal.error({
+                    title: 'This is an error message',
+                    content:  `Password Wrong!`,
+                });
             }
         }
         else{
-            alert("Please Register First")
+            Modal.info({
+                content:  `Please Register First!`,
+            });
         }
         form.resetFields();
     }
