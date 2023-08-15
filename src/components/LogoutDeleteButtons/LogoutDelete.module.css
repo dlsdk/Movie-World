@@ -1,0 +1,14 @@
+.buttondiv{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    gap:5rem;
+}
+
+.logout{
+    background-color: rgb(245, 54, 54)!important;
+}
+
+.delete{
+    background-color: rgb(203, 14, 14)!important;
+}

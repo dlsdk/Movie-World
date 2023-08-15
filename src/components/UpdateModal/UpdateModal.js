@@ -4,7 +4,6 @@ import { UserOutlined, LockOutlined, ExclamationCircleFilled } from '@ant-design
 import styles from './UpdateModal.module.css';
 import { useState } from 'react';
 import helperFunctions from '../../helpers';
-import { Alert } from 'antd';
 
 const { getFromLocalStorage } = helperFunctions;
 

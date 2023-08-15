@@ -29,16 +29,16 @@ export default function LogoutDeleteButtons() {
     item = JSON.parse(item);
     if (item.uname === localCurrentUserUname){
       localStorage.removeItem(`user_${item.uname}`);
+      }
     }
-  }
   ) 
    dispatch(deleteUser({id:`user_${localCurrentUserUname}`}))
    handleLogout();
   }
   return (
     <div className={style.buttondiv}>
-    <Button type='primary' onClick={handleLogout}>LogOut</Button>
-    <Button type='primary' onClick={handleDeleteAccount}>Delete Account</Button>
-  </div>
+      <Button type='primary' className={style.logout} onClick={handleLogout}>LogOut</Button>
+      <Button type='primary' className={style.delete} onClick={handleDeleteAccount}>Delete Account</Button>
+    </div>
   )
 }
