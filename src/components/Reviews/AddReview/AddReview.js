@@ -8,6 +8,7 @@ import helperFunctions from '../../../helpers';
 const {controlReviewAction: {addReview}} = Actions;
 const {getFromLocalStorage} = helperFunctions
 
+
 export default function AddReview({id}) {
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
@@ -27,7 +28,7 @@ export default function AddReview({id}) {
 
   return (
     <div className={style.addreview}>
-        <Input.TextArea onPressEnter={handleClick} value={content} onChange={(e) => setContent(e.target.value)} rows={3} className={style.textarea}/>
+        <Input.TextArea onPressEnter={handleClick} value={content} onChange={(e) => setContent(e.target.value)} rows={3}  className={style.textarea}/>
         <Button onClick={() => handleClick()} className={`${style.textarea} ${style.button}`} type='primary' htmlType="submit">Add Review</Button>
     </div>
   )

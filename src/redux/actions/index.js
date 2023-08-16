@@ -1,4 +1,3 @@
-import SiteActions from "./SiteActions";
 import trendActions from "./TrendingActions";
 import topRatedActions from "./TopRatedActions";
 import popularActions from "./PopularActions";
@@ -11,7 +10,6 @@ import searchActions from "./SearchActions";
 
 
 const Actions = {
-    SiteActions,
     trendActions,
     topRatedActions,
     popularActions,

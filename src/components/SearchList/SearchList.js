@@ -4,7 +4,7 @@ import VirtualList from 'rc-virtual-list';
 import './SearchList.css'
 import noimage from '../../images/post/noimage.png'
 import { useNavigate } from 'react-router-dom/dist';
-import {FileSearchOutlined} from '@ant-design/icons'
+import {InfoCircleOutlined} from '@ant-design/icons'
 
 export default function SearchList({searchList}) {
     
@@ -14,7 +14,7 @@ export default function SearchList({searchList}) {
         <List className='list'>
             <VirtualList
                 data={searchList}
-                height={520} // 300 idi
+                height={520} 
                 itemKey="username" 
             >
             {(item) => (
@@ -23,7 +23,7 @@ export default function SearchList({searchList}) {
                     <div className="content">
                       <div className="text">
                         <h3>{item.title}</h3>
-                        <FileSearchOutlined className='icon'/>
+                        <InfoCircleOutlined className='icon'/>
                       </div>
                     </div>
                 </List.Item>

@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import style from './Post.module.css'
 import { useLocation } from 'react-router-dom'
-import { Image } from 'antd';
+import { Image, Spin } from 'antd';
 import MovieInfo from '../../../components/MovieInfo/MovieInfo';
 import Reviews from '../../../components/Reviews/Reviews';
 import Corousel from '../../../components/Corousel/Corousel';
 import { useDispatch , useSelector} from 'react-redux';
 import Actions from '../../../redux/actions';
 import selectors from '../../../redux/selectors';
-import { Spin } from  'antd'
 import noimage from '../../../images/post/noimage.png'
 import AddReview from '../../../components/Reviews/AddReview/AddReview';
 
@@ -24,12 +23,16 @@ export default function Post() {
  
   useEffect(() => {
     dispatch(getSimilarMovies(movie.id))
-  }, [movie.id]) // warningleri alırlen dispatch ekledim 
+    // eslint-disable-next-line 
+  }, [movie.id])
   
   const similarList = useSelector(selectSimilarMovies);
   const isSimilarLoading = useSelector(selectSimilarPending);
 
- return (<>
+
+  //film detay sayfası
+
+return (<>
     {movie && <div className={style.post}>
       <div className={style.detailcontainer}>
         <div className={style.imagediv}>
@@ -42,13 +45,13 @@ export default function Post() {
         </div>
       </div> 
     </div>}
-   
+
     {isSimilarLoading ?   
       <Spin tip="Loading...">
           <div/>
-      </Spin> :
-        <Corousel list={similarList} title={"Similar Movies"} /> }
-     
+      </Spin> 
+      :
+      <Corousel list={similarList} title={"Similar Movies"} /> }
     </>
     
   )

@@ -1,45 +1,45 @@
 import React from 'react'
-import Actions from '../../redux/actions'
-import { useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import helperFunctions from '../../helpers'
 import { Button, Form, Input, Modal } from 'antd';
 import { UserOutlined,LockOutlined } from '@ant-design/icons'
 import styles from './Auth.module.css'
 
-const {SiteActions: {addUser,deleteCurrentUser}} = Actions 
-const {getFromLocalStorage, getAllLocalStorageValues} = helperFunctions
+const { getFromLocalStorage, getAllLocalStorageValues } = helperFunctions
 
+const handleNewId = () => {
+    return localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
+}
+
+const createNewUser = (uname,password) => {
+    const id = handleNewId();
+    const userPayload = { id,
+        uname,
+        password,
+        avatar_path:null
+    }
+    localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload));
+    Modal.success({
+        content:  'Registration completed successfully',
+    });
+}
 
 export default function Register() {
-    const dispatch = useDispatch();
     const navigate = useNavigate(); 
     const [form] = Form.useForm();
-    dispatch(deleteCurrentUser());
   
+    // önce girilen passwordların aynı olduğunu doğrula aynıysa zaten kayıtlı bir user var mı bak yoksa yeni userı oluştur.
     const handleSubmit = (values) => {
-    
-        const {uname, password, confirmpass} = values;
-        const id = localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
-        
-        if (password === confirmpass){
-            const user =  getFromLocalStorage(`user_${uname}`)
-            if (user){
+        const { uname, password, confirmpass } = values;
+
+        if (password === confirmpass){    
+            if (getFromLocalStorage(`user_${uname}`)){
                 Modal.info({
                     content:  'Already have account!',
                 });
             }
             else{
-                let userPayload = { id,
-                uname,
-                password,
-                avatar_path:null
-                }
-                dispatch(addUser(userPayload));
-                localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload));
-                Modal.success({
-                    content:  'Registration completed successfully',
-                });
+              createNewUser(uname,password);
             }
         } 
         else{
@@ -50,6 +50,7 @@ export default function Register() {
         }
         form.resetFields();
     }
+
   return (
     <div className={styles.formdiv}>
     <Form className={styles.FormStyle} form={form} onFinish={handleSubmit}>

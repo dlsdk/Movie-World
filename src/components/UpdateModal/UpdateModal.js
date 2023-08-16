@@ -1,6 +1,5 @@
-import React from 'react'
+import React , { useState }  from 'react'
 import { Input, Modal } from 'antd';
-import { useState } from 'react';
 import helperFunctions from '../../helpers';
 
 const { getFromLocalStorage } = helperFunctions;
@@ -14,7 +13,6 @@ export default function UpdateModal({visible,uname,password,setVisible}) {
     const changeUname = (uname) => {
          
         const currentUser = getFromLocalStorage('currentUser');
-        console.log("eeey uname fonks");
             localStorage.setItem(
                 `user_${uname}`,
                 JSON.stringify({
@@ -29,15 +27,13 @@ export default function UpdateModal({visible,uname,password,setVisible}) {
                     uname,
                 })
             );
-           
             localStorage.removeItem(`user_${currentUser.uname}`); 
         }
     
         const changePassword = (password) => {
-            console.log('AYNIIII');
-    
+            
             const currentUser = getFromLocalStorage('currentUser');
-            console.log("passwordda currentUserUname ne diye geliyor ? :",currentUser.uname)
+
             localStorage.setItem(
                 `user_${currentUser.uname}`,
                 JSON.stringify({
@@ -52,20 +48,19 @@ export default function UpdateModal({visible,uname,password,setVisible}) {
         }
     
         const handleOk = (uname,password) => {
+            
             const currentUser = getFromLocalStorage('currentUser');
-            console.log("CURRENT user : ",currentUser,"inputValue = ",inputValue);
+
                 if (inputValue === currentUser.password) { 
-                    console.log("ŞİFRE VE GİRİLEN İNPUT AYNI");
-                    console.log("Password ne ? :",password);
                     if (password){ 
-                        console.log("buraya girdi mi password");
                         changePassword(password)
                     }
                     if (uname){
-                        console.log("buraya girdi mi uname");
                        changeUname(uname)
                     }
-                   
+                    Modal.success({
+                        content:  'Updating completed successfully',
+                    });
                 }
                 else{
                     Modal.error({

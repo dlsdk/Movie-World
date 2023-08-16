@@ -22,7 +22,8 @@ export default function Hero() {
               <h1 className={style.title}>{mostRated.title}</h1>
               <p>{mostRated.overview}</p>
               <Button onClick={() => handleClick(mostRated.id)} className={style.detailbutton} type='primary'><span>View Detail</span></Button>
-            </div></>
+            </div>
+          </>
       )}
 
     </>

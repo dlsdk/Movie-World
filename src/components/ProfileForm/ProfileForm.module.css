@@ -15,8 +15,11 @@
 }
 .button{
     margin-top: 2rem;
-    background-color: rgb(245, 54, 54)!important;
 }
+.button:disabled{
+    background-color: gray;
+    color:rgb(80, 77, 77)
+ }
 .buttonlink{
     color: white!important;
 }

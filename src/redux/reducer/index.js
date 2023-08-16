@@ -1,4 +1,3 @@
-import SiteReducer from "./SiteReducer";
 import popularReducer from "./PopularReducer";
 import trendReducer from "./TrendReducer";
 import topRatedReducer from "./TopRatedReducer";
@@ -11,7 +10,6 @@ import searchReducer from "./SearchReducer";
 import { combineReducers } from "redux";
 
 const reducers = combineReducers({
-    SiteReducer,
     popularReducer,
     trendReducer,
     topRatedReducer,
