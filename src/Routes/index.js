@@ -22,6 +22,7 @@ const routes = [
                 element: <Home/>
             },
             {
+                auth: true,
                 path: 'search',
                 element: <Search/>
             },

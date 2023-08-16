@@ -2,7 +2,6 @@ import React from 'react'
 import style from './Hero.module.css'
 import selectors from '../../redux/selectors'
 import { useSelector } from 'react-redux'
-import helperFunctions from '../../helpers'
 import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
 

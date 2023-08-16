@@ -17,6 +17,7 @@ function App() {
     dispatch(getTopRated())
     dispatch(getTrend());
     dispatch(getGenres());
+    // eslint-disable-next-line
   },[]) 
 
   return (

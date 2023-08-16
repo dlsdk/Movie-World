@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Modal } from 'antd';
-import { UserOutlined, LockOutlined, ExclamationCircleFilled } from '@ant-design/icons';
+import { Form, Input, Button } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import styles from './ProfileForm.module.css';
 import UpdateModal from '../UpdateModal/UpdateModal';
 

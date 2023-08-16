@@ -4,12 +4,6 @@ import selectors from '../../redux/selectors'
 import helpers from '../../helpers'
 import { useSelector } from 'react-redux';
 import { Rating } from '@mui/material';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import Actions from '../../redux/actions';
-import {Avatar, List} from 'antd'
-import {UserOutlined} from '@ant-design/icons'
-import VirtualList from 'rc-virtual-list';
 
 const {getGenresNameById} = helpers
 const {Genres: {selectGenresList}} = selectors

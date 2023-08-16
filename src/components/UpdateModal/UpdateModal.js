@@ -1,7 +1,5 @@
 import React from 'react'
-import { Form, Input, Button, Modal } from 'antd';
-import { UserOutlined, LockOutlined, ExclamationCircleFilled } from '@ant-design/icons';
-import styles from './UpdateModal.module.css';
+import { Input, Modal } from 'antd';
 import { useState } from 'react';
 import helperFunctions from '../../helpers';
 

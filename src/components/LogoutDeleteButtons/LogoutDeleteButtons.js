@@ -1,22 +1,18 @@
 import React from 'react'
 import style from './LogoutDelete.module.css'
 import { Button } from 'antd'
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Actions from '../../redux/actions'
 import helperFunctions from '../../helpers';
-import selectors from '../../redux/selectors';
 
 const {SiteActions: {deleteCurrentUser,deleteUser}} = Actions
 const {getFromLocalStorage} = helperFunctions
-const {SiteSelectors: {selectUsers}} = selectors
-
 
 export default function LogoutDeleteButtons() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
-  const users = useSelector(selectUsers);
   
   const handleLogout = () =>{
     localStorage.removeItem('currentUser'); 

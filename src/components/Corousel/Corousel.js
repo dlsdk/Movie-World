@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Carousel, Card , Image} from 'antd';
 import style from './Corousel.module.css';
-import { ArrowRightOutlined, ArrowLeftOutlined, UserAddOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import noimage from '../../images/post/noimage.png'
 

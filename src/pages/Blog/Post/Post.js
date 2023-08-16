@@ -24,7 +24,7 @@ export default function Post() {
  
   useEffect(() => {
     dispatch(getSimilarMovies(movie.id))
-  }, [movie.id])
+  }, [movie.id]) // warningleri alırlen dispatch ekledim 
   
   const similarList = useSelector(selectSimilarMovies);
   const isSimilarLoading = useSelector(selectSimilarPending);

@@ -24,30 +24,25 @@ export default function Reviews({ id }) {
     const initialDataFromLocal = storedData ? Object.values(storedData) : [];
     const [dataFromLocal, setDataFromLocal] = useState(initialDataFromLocal);
     
-    useEffect(()=> {    
-        console.log("api için girdi");
+    useEffect(()=> {
         setDataFromLocal(initialDataFromLocal) 
         setNewTotalList([]);
         dispatch(getReviews(id)); // HER TÜRLÜ BİR AL DATAYI
+        // eslint-disable-next-line
     },[id])
 
     const dataFromApi = useSelector(selectReview);
 
     useEffect(()=> {
-        if (dataFromLocal.length !== 0)//varsa ne null değilse
-        {  
+        if ( dataFromLocal.length !== 0 ){           //varsa ne null değilse
             setNewTotalList(dataFromLocal);
             localStorage.setItem(`review_${id}`,JSON.stringify(dataFromLocal));
-            console.log("DEĞERİ LOCALDEN ALDI");
-           
         }
-        else
-        {
-            console.log("LOCALDE DEĞER YOK VE APİDAN GELEN DEĞER : ", dataFromApi);
+        else{
             setNewTotalList(dataFromApi);
-            localStorage.setItem(`review_${id}`,JSON.stringify(dataFromApi));
-             
+            localStorage.setItem(`review_${id}`,JSON.stringify(dataFromApi));    
         }
+        // eslint-disable-next-line
     },[dataFromApi])
 
 
@@ -57,6 +52,7 @@ export default function Reviews({ id }) {
            console.log("yeni değer : ",[...totalList,matchingReview] );
            localStorage.setItem(`review_${id}`,JSON.stringify([...totalList,matchingReview]));
         }
+        // eslint-disable-next-line
     }, [matchingReview]);
       
     return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PlusOutlined,UserOutlined } from '@ant-design/icons';
-import { Modal, Upload, message, Button , Avatar} from 'antd';
+import { Modal, Upload, Button , Avatar} from 'antd';
 import ImgCrop from 'antd-img-crop';
 import './ProfileImageUploader.css';
 import helperFunctions from '../../helpers';

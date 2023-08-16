@@ -1,4 +1,3 @@
-import * as SiteSelectors from "./SiteSelectors"
 import * as Popular from "./Popular"
 import * as TopRated from './TopRated'
 import * as Trend from './Trend'
@@ -10,7 +9,6 @@ import * as ControlReviews from './ControlReviews'
 import * as Search from './SearchSelector'
 
 const selectors = {
-    SiteSelectors,
     Popular,
     TopRated,
     Trend,

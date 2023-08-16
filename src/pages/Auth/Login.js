@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import Actions from '../../redux/actions'
 import { useDispatch} from 'react-redux'
 import helperFunctions from '../../helpers'
-import { useLocation } from 'react-router-dom'
 import { Button, Form, Input , Image, Modal} from 'antd';
 import { UserOutlined,LockOutlined } from '@ant-design/icons'
 import styles from './Auth.module.css'

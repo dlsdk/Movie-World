@@ -4,7 +4,6 @@ import { Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import Actions from '../../redux/actions'
 import selectors from '../../redux/selectors'
-import { useNavigate } from 'react-router-dom/dist'
 import SearchList from '../../components/SearchList/SearchList'
 import { Alert } from 'antd'
 
@@ -14,7 +13,6 @@ const {Search: {selectsearchList},Trend: {selectTrendList}} = selectors
 
 export default function Search() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const searchList = useSelector(selectsearchList);
   const trend = useSelector(selectTrendList);
   const [isSearchSuccess,setIsSearchSuccess] = useState(false);
