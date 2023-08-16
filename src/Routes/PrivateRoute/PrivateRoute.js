@@ -10,7 +10,7 @@ export default function PrivateRoute({children}) {
             title: 'This is an error message',
             content:  `Please Login First!`,
         });
-       return <Navigate to='/auth/login'/>
+       return <Navigate to='/auth/login' replace={true} />
     }
     return children;
 }

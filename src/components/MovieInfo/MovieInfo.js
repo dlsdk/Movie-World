@@ -13,7 +13,7 @@ const { Genres: {selectGenresList} } = selectors
 export default function MovieInfo({movie}) {
     const genresList = useSelector(selectGenresList);
     const movieGenreList = getGenresNameById(genresList,movie?.genre_ids);
-  
+
   return (
     <>
         <h1 className={style.title}>{movie.title}</h1>
