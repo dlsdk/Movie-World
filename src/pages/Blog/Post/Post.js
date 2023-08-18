@@ -23,8 +23,7 @@ export default function Post() {
  
   useEffect(() => {
     dispatch(getSimilarMovies(movie.id))
-    // eslint-disable-next-line 
-  }, [movie.id])
+  }, [movie?.id,dispatch])
   
   const similarList = useSelector(selectSimilarMovies);
   const isSimilarLoading = useSelector(selectSimilarPending);

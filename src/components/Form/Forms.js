@@ -1,20 +1,21 @@
 import { Form, Button } from "antd";
 import React from 'react'
-import LoginRegisterFormItem from "components/LoginRegisterForm/LoginRegisterFormItem";
-import styles from './LoginRegisterForm.module.css'
+import FormItem from "components/Form/FormItem";
+import styles from './Form.module.css'
 import { useNavigate } from "react-router-dom";
 
 
-export default function LoginRegisterForm({fields,navigatePath,buttonTextFirst,buttonTextSecond,handleSubmit}) {
+export default function Forms(props) {
 
     const [form] = Form.useForm();
     const navigate = useNavigate();
+    const {fields,navigatePath,buttonTextFirst,buttonTextSecond,handleSubmit} = props;
 
   return (
     <div className={styles.formdiv}>
     <Form className={styles.FormStyle} form={form} onFinish={handleSubmit}>
         {fields.map((field) => (
-            <LoginRegisterFormItem field={field}/>
+            <FormItem key={field.name} field={field}/>
         ))}
         <Form.Item className={styles.buttoncontainer}>
                 <Button type='link'className={styles.buttonlink} onClick={() => navigate(navigatePath)}>

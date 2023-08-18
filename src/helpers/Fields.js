@@ -1,17 +1,21 @@
-import {Image} from 'antd'
 import logo from 'images/logo/Color logo - no background.png'
 import { UserOutlined,LockOutlined } from '@ant-design/icons'
 
     const loginFields = [
         {
-           image: <Image preview={false} width={300} src={logo}/>,
+           type: 'image',
+           component: 'image',
+           src: logo,
+           preview:'false',
+           width:300,
         },
         {
             name:'uname',
             rules:[{ required: true, message: 'Please input your Username!' }],
             prefix: <UserOutlined />,
             placeholder:"Username",
-            type:'text'
+            type:'text',
+            component: 'input'
         },
         {
             name:'password',
@@ -19,6 +23,7 @@ import { UserOutlined,LockOutlined } from '@ant-design/icons'
             prefix:<LockOutlined />,
             placeholder:'Password',
             type:'password',
+            component: 'input'
         }
     ]
 
@@ -28,7 +33,8 @@ import { UserOutlined,LockOutlined } from '@ant-design/icons'
             rules:[{ required: true, message: 'Please input your Username!' }],
             prefix: <UserOutlined />,
             placeholder:"Username",
-            type:'text'
+            type:'text',
+            component: 'input'
         },
         {
             name:'password',
@@ -36,6 +42,7 @@ import { UserOutlined,LockOutlined } from '@ant-design/icons'
             prefix:<LockOutlined />,
             placeholder:'Password',
             type:'password',
+            component: 'input'
         },
         {
             name:'confirmpass',
@@ -43,6 +50,7 @@ import { UserOutlined,LockOutlined } from '@ant-design/icons'
             prefix:<LockOutlined />,
             placeholder:"Confirm Password",
             type:'password',
+            component: 'input'
         }
     ]
 

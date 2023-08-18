@@ -22,8 +22,7 @@ function App() {
     dispatch(getTopRated())
     dispatch(getTrend());
     dispatch(getGenres());
-    // eslint-disable-next-line
-  },[]) 
+  },[dispatch]) 
 
   return (
     <div className="App">

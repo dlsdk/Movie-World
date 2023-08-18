@@ -6,6 +6,7 @@ import selectors from 'redux/selectors';
 import ReviewList from './ReviewList';
 import { Spin } from 'antd';
 import helperFunctions from 'helpers';
+import { useMemo } from 'react';
 
 const { 
     Reviews: { selectReview, selectReviewPending },
@@ -23,22 +24,23 @@ export default function Reviews({ id }) {
     const isLoading = useSelector(selectReviewPending);
     const matchingReview = controlReviews.find(review => review.id === id); // benim yazdığım yorumun bu filmin  için mi yazmışım buluyorum.
     const [totalList,setNewTotalList] = useState([]);
-    
 
     //bu iddeki filmmin yorumlarını localten çek ve arrray halinde sun
-    const storedData = getFromLocalStorage(`review_${id}`) ;
-    const initialDataFromLocal = storedData ? Object.values(storedData) : [];
+    const initialDataFromLocal = useMemo(() => {
+        const storedData = getFromLocalStorage(`review_${id}`);
+        return storedData ? Object.values(storedData) : [];
+    }, [id]);
     const [dataFromLocal, setDataFromLocal] = useState(initialDataFromLocal);
     
     useEffect(()=> {
-        setDataFromLocal(initialDataFromLocal) 
-        setNewTotalList([]);
-        dispatch(getReviews(id)); // HER TÜRLÜ BİR AL DATAYI
-        // eslint-disable-next-line
-    },[id])
+            setDataFromLocal(initialDataFromLocal) 
+            setNewTotalList([]);
+            dispatch(getReviews(id)); // HER TÜRLÜ BİR AL DATAYI
+       
+    },[id,dispatch,initialDataFromLocal])
 
     const dataFromApi = useSelector(selectReview);
-// Locale kaydet 
+    // Locale kaydet 
     useEffect(()=> {
         if ( dataFromLocal.length !== 0 ){  
             setNewTotalList(dataFromLocal);
@@ -48,18 +50,19 @@ export default function Reviews({ id }) {
             setNewTotalList(dataFromApi);
              localStorage.setItem(`review_${id}`,JSON.stringify(dataFromApi));    
         }
-        // eslint-disable-next-line
-    },[dataFromApi,id])
+    },[dataFromApi,id,setNewTotalList,dataFromLocal])
 
   //YAZDIĞIM YORUM VAR MI VARSA YENİ YORUMU EKLE
     useEffect(() => {
         if (matchingReview) {
-            setNewTotalList([...totalList, matchingReview]); 
-           localStorage.setItem(`review_${id}`,JSON.stringify([...totalList,matchingReview]));  
+            setNewTotalList(prevTotalList => {
+                const updatedTotalList = [...prevTotalList, matchingReview];
+                localStorage.setItem(`review_${id}`, JSON.stringify(updatedTotalList));
+                return updatedTotalList;
+            });
         }
-        // eslint-disable-next-line
-    }, [matchingReview]);
-      
+    }, [id, matchingReview]);
+
     return (
         <>
             <div className={style.review}>

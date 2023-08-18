@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import helperFunctions from 'helpers'
 import { Form, Modal} from 'antd';
-import LoginRegisterForm from 'components/LoginRegisterForm/LoginRegisterForm';
+import Forms from 'components/Form/Forms';
 import Fields from 'helpers/Fields';
 
 const {loginFields} = Fields
@@ -39,7 +39,7 @@ export default function Login() {
     }
 
   return (
-    <LoginRegisterForm fields={loginFields} navigatePath={'/auth/register'} 
+    <Forms fields={loginFields} navigatePath={'/auth/register'} 
     handleSubmit={handleSubmit}  buttonTextFirst={"Don't have an account?"} 
     buttonTextSecond={'Log in'}/>
   )

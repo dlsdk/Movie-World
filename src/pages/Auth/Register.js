@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import helperFunctions from 'helpers'
 import {  Form, Modal } from 'antd';
-import LoginRegisterForm from 'components/LoginRegisterForm/LoginRegisterForm';
+import LoginRegisterForm from 'components/Form/Forms';
 import Fields from 'helpers/Fields';
 
 const { localStorageHelperFunctions: {getAllLocalStorageValues,getFromLocalStorage}} = helperFunctions
