@@ -12,7 +12,7 @@ const handleNewId = () => {
     return localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
 }
 
-const createNewUser = (uname,password) => {
+const createNewUser = (uname,password,navigate) => {
     const id = handleNewId();
     const userPayload = { id,
         uname,
@@ -22,6 +22,7 @@ const createNewUser = (uname,password) => {
     localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload));
     Modal.success({
         content:  'Registration completed successfully',
+        onOk: () =>{ navigate('/auth/login')},
     });
 }
 
@@ -40,8 +41,7 @@ export default function Register() {
                 });
             }
             else{
-              createNewUser(uname,password);
-              navigate('/auth/login')
+              createNewUser(uname,password,navigate);
             }
         } 
         else{

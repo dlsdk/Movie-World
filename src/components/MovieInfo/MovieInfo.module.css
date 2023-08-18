@@ -3,7 +3,7 @@
 }
 .overview{
     max-height: calc(100vh - 660px); /* Ana yapının içinde rahatça sığacak bir değer */
-    overflow-y:scroll;
+    overflow-y:auto;
 }
 .info{
     text-align: start;
