@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './MovieInfo.module.css'
-import selectors from '../../redux/selectors'
-import helpers from '../../helpers'
+import selectors from 'redux/selectors'
+import helpers from 'helpers'
 import { useSelector } from 'react-redux';
 import { Rating } from '@mui/material';
 

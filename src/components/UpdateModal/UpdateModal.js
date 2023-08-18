@@ -2,9 +2,7 @@ import React , { useState }  from 'react'
 import { Input, Modal } from 'antd';
 import helperFunctions from '../../helpers';
 
-const { getFromLocalStorage } = helperFunctions;
-
-
+const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 export default function UpdateModal({visible,uname,password,setVisible}) {
 

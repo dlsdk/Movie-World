@@ -2,13 +2,14 @@ import React from 'react'
 import {List, Alert,Image} from 'antd'
 import VirtualList from 'rc-virtual-list';
 import './SearchList.css'
-import noimage from '../../images/post/noimage.png'
+import noimage from 'images/post/noimage.png'
 import { useNavigate } from 'react-router-dom/dist';
 import {InfoCircleOutlined} from '@ant-design/icons'
 
 export default function SearchList({searchList}) {
-    
-    const navigate = useNavigate();
+  
+  const navigate = useNavigate();
+  
   return (<>
     {searchList && searchList.length !== 0 ? 
         <List className='list'>

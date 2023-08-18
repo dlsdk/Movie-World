@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import './Search.css'
-import { Input, Alert } from 'antd'
+import { Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import Actions from '../../redux/actions'
-import selectors from '../../redux/selectors'
-import SearchList from '../../components/SearchList/SearchList'
+import Actions from 'redux/actions/'
+import selectors from 'redux/selectors'
+import SearchList from 'components/SearchList/SearchList'
 
 
-const {searchActions: {getFromSearch}} = Actions
-const {Search: {selectsearchList},Trend: {selectTrendList}} = selectors
+const { searchActions: {getFromSearch} } = Actions
+const {
+  Search: {selectsearchList},
+  Trend: {selectTrendList}
+} = selectors
 
 export default function Search() {
   
@@ -27,23 +30,15 @@ export default function Search() {
   }
 
   return (
-    <div className='search'>
+    <div className='search'>  <div><Input.Search  className='searchbar'
+            placeholder="search movie"
+            allowClear
+            enterButton="Search"
+            size="large"
+            onSearch={onSearch}
+        /></div>   
       <div className='container'>
-        <Input.Search
-          placeholder="search movie"
-          allowClear
-          enterButton="Search"
-          size="large"
-          className='searchbar'
-          onSearch={onSearch}
-        />
-        {isSearchSuccess ? 
-        <SearchList searchList={searchList}/> :
-         <> 
-          <Alert className='alert' showIcon type='warning' message="Please Search Movie First!"/>
-          <SearchList searchList={trend}/>
-         </>
-        } 
+        <SearchList searchList={isSearchSuccess === true ? searchList : trend}/> 
       </div>
     </div>
   )

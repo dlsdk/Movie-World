@@ -2,11 +2,11 @@ import React, { useState }  from 'react'
 import { Button, Input } from 'antd'
 import style from './AddReview.module.css'
 import { useDispatch } from 'react-redux';
-import Actions from '../../../redux/actions';
-import helperFunctions from '../../../helpers';
+import Actions from 'redux/actions';
+import helperFunctions from 'helpers';
 
 const {controlReviewAction: {addReview}} = Actions;
-const {getFromLocalStorage} = helperFunctions
+const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 
 export default function AddReview({id}) {

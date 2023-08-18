@@ -1,21 +1,17 @@
 .list{
    margin-top: 3rem;
-   height: 100%;
-   width: 100%;
+
 }
 .list .rc-virtual-list-holder-inner{
     display: flex!important;
     flex-wrap: wrap!important;
     flex-direction: row!important;
-    width: fit-content!important;
     justify-content: center;
     gap:2rem;
 }
 
 .lista{
     margin-top: 5%;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
 }

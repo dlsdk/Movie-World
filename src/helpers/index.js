@@ -1,17 +1,9 @@
+import localStorageHelperFunctions from "./LocalStorageHelperFunctions";
+import getGenresNameById from "./GenresHelperFunction";
 
-const getFromLocalStorage = (key) => {
-    return JSON.parse(localStorage.getItem(key))
-}
-const getAllLocalStorageValues = () => {
-    return Object.values(localStorage).map(JSON.parse);
-}
-
-const getGenresNameById = (genres,movieGenderIds) => {
-    return genres.filter(genre => movieGenderIds.includes(genre.id)).map(genre => genre.name);
-}
 
 const helperFunctions = {
-    getFromLocalStorage, getAllLocalStorageValues, getGenresNameById
+   localStorageHelperFunctions, getGenresNameById
 }
 
 export default helperFunctions;

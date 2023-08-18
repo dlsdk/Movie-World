@@ -1,11 +1,16 @@
 import './App.css';
 import { useRoutes } from 'react-router-dom';
-import routes from './Routes'
-import Actions from './redux/actions';
+import routes from 'Routes'
+import Actions from 'redux/actions';
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
 
-const {popularActions: {getPopular}, topRatedActions: {getTopRated}, trendActions: {getTrend}, genresActions: {getGenres}} = Actions
+const {
+  popularActions: {getPopular}, 
+  topRatedActions: {getTopRated}, 
+  trendActions: {getTrend}, 
+  genresActions: {getGenres}
+} = Actions
 
 
 function App() {

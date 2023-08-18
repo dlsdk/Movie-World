@@ -2,8 +2,9 @@ import React from 'react'
 import style from './LogoutDelete.module.css'
 import { Button , Popconfirm} from 'antd'
 import { useNavigate } from 'react-router-dom';
-import helperFunctions from '../../helpers';
-const {getFromLocalStorage} = helperFunctions
+import helperFunctions from 'helpers';
+
+const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 export default function LogoutDeleteButtons() {
   const navigate = useNavigate();

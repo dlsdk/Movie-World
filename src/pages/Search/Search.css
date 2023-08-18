@@ -1,26 +1,19 @@
 .search{
-    background-color: rgba(32, 32, 32, 32);
-    height: 100vh;
-    color: white;
-    text-align: start;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ height: 100vh;  
+ color: white;
+ text-align: start;
 }
+
 .container{
-    padding: 100px 0 10px 0;
+    margin: 0 auto;
+    width: 100vw;
 }
-
 .searchbar{
-    width: 30%;
+    margin:0 auto;
+    padding-top: 8%;
+    margin-left: 6rem;
+    width: fit-content;
 }
-
 .searchbar .ant-btn{
     background-color:rgb(203, 14, 14)!important;
-}
-   
-
-.alert{
-    width: fit-content;
-    margin-top: 0.5rem;
 }

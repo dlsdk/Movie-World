@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import style from './Reviews.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import Actions from '../../redux/actions';
-import selectors from '../../redux/selectors';
+import Actions from 'redux/actions';
+import selectors from 'redux/selectors';
 import ReviewList from './ReviewList';
 import { Spin } from 'antd';
-import helperFunctions from '../../helpers';
+import helperFunctions from 'helpers';
 
-const { Reviews: { selectReview, selectReviewPending }, ControlReviews: { selectControlReviews } } = selectors;
+const { 
+    Reviews: { selectReview, selectReviewPending },
+    ControlReviews: { selectControlReviews } 
+} = selectors;
+
 const { reviewsActions: { getReviews } } = Actions;
-const { getFromLocalStorage } = helperFunctions;
+const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 // YORUMLAR 
 export default function Reviews({ id }) {

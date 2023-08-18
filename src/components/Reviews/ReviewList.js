@@ -3,12 +3,13 @@ import style from './Reviews.module.css'
 import {Avatar, List, Alert} from 'antd'
 import {UserOutlined} from '@ant-design/icons'
 import VirtualList from 'rc-virtual-list';
-import helperFunctions from '../../helpers';
+import helperFunctions from 'helpers';
 
-const {getFromLocalStorage}=helperFunctions
+const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 export default function ReviewList({reviewList}) {
-  return (<>
+  return (
+  <>
     {reviewList && reviewList.length !== 0 ? 
         <List className={style.list}>
             <VirtualList
@@ -27,6 +28,6 @@ export default function ReviewList({reviewList}) {
         </List>
             : 
         <Alert style={{width:'-webkit-fill-available'}}  showIcon message="Can't find any review. You can write first !" type="warning"/>}
-       </>
+</>
   )
 }

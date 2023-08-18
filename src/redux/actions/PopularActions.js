@@ -1,6 +1,6 @@
 import {GET_POPULAR_PENDING, GET_POPULAR_SUCCESS, GET_POPULAR_ERROR} from '../actiontypes/PopularActionsTypes'
 import axios from "axios";
-import { options } from "../../helpers";
+import { options } from "helpers";
 
 const getPopularError = (error) => {
    return {
@@ -21,6 +21,8 @@ const getPopularSuccess = (data) => {
         data
     }
 }
+
+//
 
 const getPopular = () => dispatch => {
     dispatch(getPopularPending());

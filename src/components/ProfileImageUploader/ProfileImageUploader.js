@@ -3,10 +3,10 @@ import { PlusOutlined,UserOutlined } from '@ant-design/icons';
 import { Modal, Upload, Button , Avatar} from 'antd';
 import ImgCrop from 'antd-img-crop';
 import './ProfileImageUploader.css';
-import helperFunctions from '../../helpers';
+import helperFunctions from 'helpers';
 
 
-const {getFromLocalStorage} = helperFunctions
+const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import style from './CardC.module.css'
 import { Image, Card } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import noimage from '../../../images/post/noimage.png'
+import noimage from 'images/post/noimage.png'
 
 export default function CardC({index,listElement}) {
 

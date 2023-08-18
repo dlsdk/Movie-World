@@ -2,14 +2,14 @@ import React, { useEffect } from 'react'
 import style from './Post.module.css'
 import { useLocation } from 'react-router-dom'
 import { Image, Spin } from 'antd';
-import MovieInfo from '../../../components/MovieInfo/MovieInfo';
-import Reviews from '../../../components/Reviews/Reviews';
-import Corousel from '../../../components/Corousel/Corousel';
+import MovieInfo from 'components/MovieInfo/MovieInfo';
+import Reviews from 'components/Reviews/Reviews';
+import Corousel from 'components/Corousel/Corousel';
 import { useDispatch , useSelector} from 'react-redux';
-import Actions from '../../../redux/actions';
-import selectors from '../../../redux/selectors';
-import noimage from '../../../images/post/noimage.png'
-import AddReview from '../../../components/Reviews/AddReview/AddReview';
+import Actions from 'redux/actions';
+import selectors from 'redux/selectors';
+import noimage from 'images/post/noimage.png'
+import AddReview from 'components/Reviews/AddReview/AddReview';
 
 
 const { similarActions: {getSimilarMovies} } = Actions
