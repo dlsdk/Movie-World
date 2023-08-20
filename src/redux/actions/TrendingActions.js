@@ -1,6 +1,5 @@
 import {GET_TREND_ERROR, GET_TREND_PENDING, GET_TREND_SUCCESS} from '../actiontypes/TrendingActionTypes'
-import axios from "axios";
-import { options } from "../../helpers";
+import { getDataArray } from 'services/getData';
 
 const getTrendError = (error) => {
    return {
@@ -24,8 +23,9 @@ const getTrendSuccess = (data) => {
 
 const getTrend = () => dispatch => {
     dispatch(getTrendPending());
-    axios.get('https://api.themoviedb.org/3/trending/movie/day',options).then((response) => {
-        dispatch(getTrendSuccess(response.data.results))
+    getDataArray('https://api.themoviedb.org/3/trending/movie/day')
+    .then((data) => {
+        dispatch(getTrendSuccess(data))
     }
     ).catch(error => {
         dispatch(getTrendError(error))

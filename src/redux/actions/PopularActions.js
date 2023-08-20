@@ -1,6 +1,5 @@
-import {GET_POPULAR_PENDING, GET_POPULAR_SUCCESS, GET_POPULAR_ERROR} from '../actiontypes/PopularActionsTypes'
-import axios from "axios";
-import { options } from "helpers";
+import {GET_POPULAR_PENDING, GET_POPULAR_SUCCESS, GET_POPULAR_ERROR} from 'redux/actiontypes/PopularActionsTypes'
+import { getDataArray } from 'services/getData';
 
 const getPopularError = (error) => {
    return {
@@ -22,12 +21,11 @@ const getPopularSuccess = (data) => {
     }
 }
 
-//
-
 const getPopular = () => dispatch => {
     dispatch(getPopularPending());
-    axios.get('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',options).then((response) => {
-        dispatch(getPopularSuccess(response.data.results))
+    getDataArray('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1')
+    .then((data) => {
+        dispatch(getPopularSuccess(data))
     }
     ).catch(error => {
         dispatch(getPopularError(error))

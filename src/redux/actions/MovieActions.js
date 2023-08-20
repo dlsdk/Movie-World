@@ -1,6 +1,6 @@
-import {GET_MOVIE_PENDING, GET_MOVIE_SUCCESS, GET_MOVIE_ERROR} from '../actiontypes/MovieDetail'
-import axios from "axios";
-import { options } from "../../helpers";
+import {GET_MOVIE_PENDING, GET_MOVIE_SUCCESS, GET_MOVIE_ERROR} from 'redux/actiontypes/MovieDetail'
+import {getData} from 'services/getData';
+
 
 const getMovieError = (error) => {
    return {
@@ -25,12 +25,13 @@ const getMovieSuccess = (data) => {
 
 const getMovie = (movie_id) => dispatch => {
     dispatch(getMoviePending());
-    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`,options).then((response) => {
-        dispatch(getMovieSuccess(response.data))
-    }
-    ).catch(error => {
-        dispatch(getMovieError(error))
-     })
+    getData(`https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`)
+        .then(data => {
+             dispatch(getMovieSuccess(data));
+        })
+        .catch(error => {
+            dispatch(getMovieError(error));
+        });
  }
  
 

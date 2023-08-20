@@ -22,7 +22,7 @@ const createNewUser = (uname,password,navigate) => {
     localStorage.setItem(`user_${uname}`,JSON.stringify(userPayload));
     Modal.success({
         content:  'Registration completed successfully',
-        onOk: () =>{ navigate('/auth/login')},
+        onOk: () => navigate('/auth/login'),
     });
 }
 

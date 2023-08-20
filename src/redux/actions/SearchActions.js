@@ -1,6 +1,6 @@
-import {SEARCH_ERROR,SEARCH_PENDING,SEARCH_SUCCESS} from '../actiontypes/SearchActionTypes'
-import axios from "axios";
-import { options } from "../../helpers";
+import {SEARCH_ERROR,SEARCH_PENDING,SEARCH_SUCCESS} from 'redux/actiontypes/SearchActionTypes'
+import { getDataArray } from 'services/getData';
+
 
 const getSearchError = (error) => {
    return {
@@ -25,9 +25,9 @@ const getSearchSuccess = (data) => {
 
 const getFromSearch = (query) => dispatch => {
     dispatch(getSearchPending());
-    axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,options).then((response) => {
-        dispatch(getSearchSuccess(response.data.results));
-        console.log("searchten gelenler : ",response.data.results)
+    getDataArray(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`)
+    .then((data) => {
+        dispatch(getSearchSuccess(data));
     }
     ).catch(error => {
         dispatch(getSearchError(error))

@@ -13,8 +13,6 @@ const AuthLayout = React.lazy(() => import('pages/Auth/AuthLayout'))
 const PrivateRoute = React.lazy(() => import('./PrivateRoute/PrivateRoute'))
 const BlogPage404 = React.lazy(() => import('pages/Blog/BlogPage404'))
 
-
-
 const routes = [
     {
         path:'/',

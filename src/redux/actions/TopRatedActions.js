@@ -1,6 +1,5 @@
 import {GET_TOPRATED_ERROR,GET_TOPRATED_PENDING,GET_TOPRATED_SUCCESS} from '../actiontypes/TopRatedActionTypes'
-import axios from "axios";
-import { options } from "../../helpers";
+import { getDataArray } from 'services/getData';
 
 
 const getTopRatedError = (error) => {
@@ -25,8 +24,9 @@ const getTopRatedSuccess = (data) => {
 
 const getTopRated = () => dispatch => {
     dispatch(getTopRatedPending());
-    axios.get("https://api.themoviedb.org/3/movie/top_rated",options).then((response) => {
-        dispatch(getTopRatedSuccess(response.data.results))
+    getDataArray("https://api.themoviedb.org/3/movie/top_rated")
+    .then((data) => {
+        dispatch(getTopRatedSuccess(data))
     }
     ).catch(error => {
         dispatch(getTopRatedError(error))
