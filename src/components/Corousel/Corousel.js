@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Carousel } from 'antd';
 import style from './Corousel.module.css';
 import { ArrowRightOutlined, ArrowLeftOutlined } from '@ant-design/icons';
-import CardC from '../Card/CardC';
+import CardC from 'components/Card/CardC';
 
 export default function Corousel({ list, title }) {
   

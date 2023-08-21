@@ -9,7 +9,7 @@ import SearchList from 'components/SearchList/SearchList'
 
 const { searchActions: {getFromSearch} } = Actions
 const {
-  Search: {selectsearchList},
+  Search: {selectsearchList,selectSearchError},
   Trend: {selectTrendList}
 } = selectors
 
@@ -17,6 +17,7 @@ export default function Search() {
   
   const dispatch = useDispatch();
   const searchList = useSelector(selectsearchList);
+  const error = useSelector(selectSearchError);
   const trend = useSelector(selectTrendList);
   const [isSearchSuccess,setIsSearchSuccess] = useState(false);
 
@@ -25,18 +26,22 @@ export default function Search() {
     if (query){
         dispatch(getFromSearch(query))
         status = true;
+        console.log("isErrorExist ne döndü ? :",error);
     }
     setIsSearchSuccess(status);
   }
 
   return (
-    <div className='search'>  <div><Input.Search  className='searchbar'
+    <div className='search'> 
+     <div>
+      <Input.Search  className='searchbar'
             placeholder="search movie"
             allowClear
             enterButton="Search"
             size="large"
             onSearch={onSearch}
-        /></div>   
+        />
+      </div>
       <div className='container'>
         <SearchList searchList={isSearchSuccess === true ? searchList : trend}/> 
       </div>

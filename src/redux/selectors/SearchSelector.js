@@ -6,3 +6,8 @@ export const selectsearchList = createSelector(
     [selectSearch],
     (val) => val.searchList,
 )
+
+export const selectSearchError = createSelector(
+    [selectSearch],
+    (val) => val.error,
+)

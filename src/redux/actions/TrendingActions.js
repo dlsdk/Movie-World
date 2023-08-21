@@ -1,4 +1,4 @@
-import {GET_TREND_ERROR, GET_TREND_PENDING, GET_TREND_SUCCESS} from '../actiontypes/TrendingActionTypes'
+import {GET_TREND_ERROR, GET_TREND_PENDING, GET_TREND_SUCCESS} from 'redux/actiontypes/TrendingActionTypes'
 import { getDataArray } from 'services/getData';
 
 const getTrendError = (error) => {

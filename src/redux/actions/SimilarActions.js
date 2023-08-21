@@ -1,4 +1,4 @@
-import {GET_SIMILAR_PENDING, GET_SIMILAR_SUCCESS, GET_SIMILAR_ERROR} from '../actiontypes/SimilarActionTypes'
+import {GET_SIMILAR_PENDING, GET_SIMILAR_SUCCESS, GET_SIMILAR_ERROR} from 'redux/actiontypes/SimilarActionTypes'
 import { getDataArray } from 'services/getData';
 
 const getSimilarError = (error) => {

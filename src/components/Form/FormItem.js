@@ -5,13 +5,10 @@ export default function FormItem({field}) {
   const renderField = () => {
     switch (field.component) {
       case 'image':
-        console.log(field)
         return (<Image {...field}/>);
       case 'input':
         return (
-          <Input
-           {...field}
-          />
+          <Input {...field} />
         );
       default:
         return;

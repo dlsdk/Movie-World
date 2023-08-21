@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import helperFunctions from 'helpers'
 import { Form, Modal} from 'antd';
 import Forms from 'components/Form/Forms';
-import Fields from 'helpers/Fields';
+import { loginFields } from 'helpers/Fields';
 
-const {loginFields} = Fields
 const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 export default function Login() {

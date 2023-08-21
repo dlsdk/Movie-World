@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import helperFunctions from 'helpers'
 import {  Form, Modal } from 'antd';
 import LoginRegisterForm from 'components/Form/Forms';
-import Fields from 'helpers/Fields';
+import { registerFields } from 'helpers/Fields';
 
 const { localStorageHelperFunctions: {getAllLocalStorageValues,getFromLocalStorage}} = helperFunctions
-const {registerFields} = Fields
 
 const handleNewId = () => {
     return localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;

@@ -1,4 +1,4 @@
-import {GET_TOPRATED_ERROR,GET_TOPRATED_PENDING,GET_TOPRATED_SUCCESS} from '../actiontypes/TopRatedActionTypes'
+import {GET_TOPRATED_ERROR,GET_TOPRATED_PENDING,GET_TOPRATED_SUCCESS} from 'redux/actiontypes/TopRatedActionTypes'
 import { getDataArray } from 'services/getData';
 
 
