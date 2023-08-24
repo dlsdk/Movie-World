@@ -22,6 +22,8 @@
     color: white;
     padding-right: 4rem!important;
     text-align:start !important;
- 
-
 }   
+
+.content{
+    width: 45rem;
+}

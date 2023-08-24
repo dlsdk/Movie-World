@@ -28,7 +28,6 @@ const createNewUser = (uname,password,navigate) => {
 
 export default function Register() {
     
-console.log("RENDER : REGİSTER.JS")
     const navigate = useNavigate(); 
     const [form] = ANTDFORM.useForm();
     // önce girilen passwordların aynı olduğunu doğrula aynıysa zaten kayıtlı bir user var mı bak yoksa yeni userı oluştur.

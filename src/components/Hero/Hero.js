@@ -11,7 +11,6 @@ export default function Hero() {
 
   const mostRated = useSelector(selectTopRatedMost);
   const navigate = useNavigate();
-  console.log("RENDER :HERO")
 
   const handleClick = (id) =>{
     navigate(`/blog/post/${id}`, { state: mostRated  })

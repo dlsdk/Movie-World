@@ -36,14 +36,12 @@ const ProfileImageUploader = () => {
   };
 
   const handleChange = ({ file, fileList: newFileList }) => {
-    console.log("SON STATUS : ",file.status)
     if (file.status === 'error'){
       setUploadSuccess(false);
         Modal.error({
           title: 'This is an error message',
           content:  `${file.name} file upload failed.`,
-      });
-      
+      }); 
     }
     else{
       setUploadSuccess(true);
@@ -54,7 +52,6 @@ const ProfileImageUploader = () => {
 
   const handleUpload = () => {
     if (fileList.length === 1 && fileList[0].response.status === 'done') {
-      setUploadSuccess(true);
       const avatar_path = fileList[0].thumbUrl;
       const currentUser= getFromLocalStorage('currentUser');
       localStorage.setItem(
@@ -70,10 +67,10 @@ const ProfileImageUploader = () => {
           ...getFromLocalStorage(`user_${currentUser.uname}`),
           avatar_path,
         })
-      );
-      setUploadSuccess(false);
+      ); 
      
-    }
+    } 
+    setUploadSuccess(false);
   };
 
   const uploadButton = (

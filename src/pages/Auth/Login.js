@@ -9,7 +9,6 @@ const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 export default function Login() {
     
-console.log("RENDER : LOGİN.JS")
     const navigate = useNavigate();
     const [form] = ANTDFORM.useForm();
     localStorage.removeItem('currentUser');

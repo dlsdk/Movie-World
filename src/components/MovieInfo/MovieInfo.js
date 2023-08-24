@@ -12,7 +12,7 @@ const { Genres: {selectGenresList} } = selectors
 
 function MovieInfo({movie}) {
     const genresList = useSelector(selectGenresList);
-    const movieGenreList = getGenresNameById(genresList,movie?.genre_ids);console.log("RENDER : MOVIEINFO.JS")
+    const movieGenreList = getGenresNameById(genresList,movie?.genre_ids);
   return (
     <>
         <h1 className={style.title}>{movie.title}</h1>

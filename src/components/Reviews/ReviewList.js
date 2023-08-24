@@ -39,7 +39,7 @@ export default function ReviewList({ reviewList }) {
                   }
                 />
                 <h3 className={style.metatitle}>{item.author_details.username}</h3>
-                <p>{item.content}</p>
+                <p className={style.content}>{item.content}</p>
               </div>
             )}
           </VirtualList>

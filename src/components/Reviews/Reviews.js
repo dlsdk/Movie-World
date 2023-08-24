@@ -24,8 +24,6 @@ function Reviews({ id }) {
     const matchingReview = controlReviews.find(review => review.id === id);// benim yazdığım yorumun bu filmin  için mi yazmışım buluyorum.
     const [totalList,setNewTotalList] = useState([]);
 
-    console.log("RENDER : REVİEWS.JS")
-
     //bu iddeki filmmin yorumlarını localten çek ve arrray halinde sun
     const initialDataFromLocal = useMemo(() => {
         const storedData = getFromLocalStorage(`review_${id}`);

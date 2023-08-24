@@ -16,7 +16,6 @@ const { similarActions: {getSimilarMovies} } = Actions
 const { Similar: {selectSimilarMovies,selectSimilarPending} } = selectors
 
 export default function Post() {
-  console.log("RENDER : POST.JS")
 
   const location = useLocation();
   const movie = location.state;

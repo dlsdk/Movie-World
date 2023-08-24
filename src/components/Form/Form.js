@@ -4,7 +4,6 @@ import FormItem from "components/Form/FormItem";
 import styles from './Form.module.css'
 import { useNavigate } from "react-router-dom";
 
-console.log("RENDER : FORM")
 export default function Form(props) {
 
     const [form] = ANTDFORM.useForm();
