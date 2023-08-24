@@ -6,9 +6,8 @@ import { useSelector } from 'react-redux';
 
 const {
   Popular:{selectPopularList} , 
-  TopRated: {selectTopRatedList}, 
-  Trend: {selectTrendList}
-} = selectors;
+  TopRated: {selectTopRatedList},
+  Trend: {selectTrendList}} = selectors;
 
 export default function Home() { 
 
@@ -23,7 +22,5 @@ export default function Home() {
       <Corousel list={topRatedList} title='TOP RATED'/>
       <Corousel list={trendList} title='TRENDS'/>
     </div>
-    
-
   )
 }

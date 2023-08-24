@@ -1,16 +1,17 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import helperFunctions from 'helpers'
-import { Form, Modal} from 'antd';
-import Forms from 'components/Form/Forms';
+import { Form as ANTDFORM, Modal} from 'antd';
+import Form from 'components/Form/Form';
 import { loginFields } from 'helpers/Fields';
 
 const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 export default function Login() {
     
+console.log("RENDER : LOGİN.JS")
     const navigate = useNavigate();
-    const [form] = Form.useForm();
+    const [form] = ANTDFORM.useForm();
     localStorage.removeItem('currentUser');
 
     // eğer böyle bir user varsa önce şifrenin doğruluğunu kontrol et doğruysa currentUserı user olarak ayarla
@@ -38,7 +39,7 @@ export default function Login() {
     }
 
   return (
-    <Forms fields={loginFields} navigatePath={'/auth/register'} 
+    <Form fields={loginFields} navigatePath={'/auth/register'} 
     handleSubmit={handleSubmit}  buttonTextFirst={"Don't have an account?"} 
     buttonTextSecond={'Log in'}/>
   )

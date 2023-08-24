@@ -7,7 +7,6 @@ import ReviewList from './ReviewList';
 import { Spin } from 'antd';
 import helperFunctions from 'helpers';
 import { useMemo } from 'react';
-
 const { 
     Reviews: { selectReview, selectReviewPending },
     ControlReviews: { selectControlReviews } 
@@ -17,42 +16,41 @@ const { reviewsActions: { getReviews } } = Actions;
 const { localStorageHelperFunctions: {getFromLocalStorage} } = helperFunctions
 
 // YORUMLAR 
-export default function Reviews({ id }) {
+function Reviews({ id }) {
     
     const dispatch = useDispatch();
     const controlReviews = useSelector(selectControlReviews); // yazdığım reviewı controlReviews değişkenine atadım.
     const isLoading = useSelector(selectReviewPending);
-    const matchingReview = controlReviews.find(review => review.id === id); // benim yazdığım yorumun bu filmin  için mi yazmışım buluyorum.
+    const matchingReview = controlReviews.find(review => review.id === id);// benim yazdığım yorumun bu filmin  için mi yazmışım buluyorum.
     const [totalList,setNewTotalList] = useState([]);
+
+    console.log("RENDER : REVİEWS.JS")
 
     //bu iddeki filmmin yorumlarını localten çek ve arrray halinde sun
     const initialDataFromLocal = useMemo(() => {
         const storedData = getFromLocalStorage(`review_${id}`);
-        return storedData ? Object.values(storedData) : [];
+        return storedData ? storedData : [];
     }, [id]);
-    const [dataFromLocal, setDataFromLocal] = useState(initialDataFromLocal);
+
     
     useEffect(()=> {
-            setDataFromLocal(initialDataFromLocal) 
-            setNewTotalList([]);
-            dispatch(getReviews(id)); // HER TÜRLÜ BİR AL DATAYI
-       
-    },[id,dispatch,initialDataFromLocal])
+        dispatch(getReviews(id)); // HER TÜRLÜ BİR AL DATAYI
+    },[id,dispatch])
 
     const dataFromApi = useSelector(selectReview);
     // Locale kaydet 
     useEffect(()=> {
-        if ( dataFromLocal.length !== 0 ){  
-            setNewTotalList(dataFromLocal);
-            localStorage.setItem(`review_${id}`,JSON.stringify(dataFromLocal));  
+        if ( initialDataFromLocal.length !== 0 ){  
+            setNewTotalList(initialDataFromLocal);
+            localStorage.setItem(`review_${id}`,JSON.stringify(initialDataFromLocal));  
         }
         else{
             setNewTotalList(dataFromApi);
-             localStorage.setItem(`review_${id}`,JSON.stringify(dataFromApi));    
+            localStorage.setItem(`review_${id}`,JSON.stringify(dataFromApi));    
         }
-    },[dataFromApi,id,setNewTotalList,dataFromLocal])
+    },[id,initialDataFromLocal,dataFromApi])
 
-  //YAZDIĞIM YORUM VAR MI VARSA YENİ YORUMU EKLE
+ // YAZDIĞIM YORUM VAR MI VARSA YENİ YORUMU EKLE
     useEffect(() => {
         if (matchingReview) {
             setNewTotalList(prevTotalList => {
@@ -61,7 +59,7 @@ export default function Reviews({ id }) {
                 return updatedTotalList;
             });
         }
-    }, [id, matchingReview]);
+    }, [id,matchingReview]);
 
     return (
         <>
@@ -80,4 +78,4 @@ export default function Reviews({ id }) {
 
 } 
 
-
+export default React.memo(Reviews);

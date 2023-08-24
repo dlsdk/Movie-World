@@ -1,11 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import helperFunctions from 'helpers'
-import {  Form, Modal } from 'antd';
-import LoginRegisterForm from 'components/Form/Forms';
+import {  Form as ANTDFORM, Modal } from 'antd';
+import Form from 'components/Form/Form';
 import { registerFields } from 'helpers/Fields';
 
 const { localStorageHelperFunctions: {getAllLocalStorageValues,getFromLocalStorage}} = helperFunctions
+
 
 const handleNewId = () => {
     return localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
@@ -27,8 +28,9 @@ const createNewUser = (uname,password,navigate) => {
 
 export default function Register() {
     
+console.log("RENDER : REGİSTER.JS")
     const navigate = useNavigate(); 
-    const [form] = Form.useForm();
+    const [form] = ANTDFORM.useForm();
     // önce girilen passwordların aynı olduğunu doğrula aynıysa zaten kayıtlı bir user var mı bak yoksa yeni userı oluştur.
     const handleSubmit = (values) => {
         const { uname, password, confirmpass } = values;
@@ -53,7 +55,7 @@ export default function Register() {
     }
 
   return (
-        <LoginRegisterForm fields={registerFields} navigatePath={'/auth/login'} 
+        <Form fields={registerFields} navigatePath={'/auth/login'} 
         handleSubmit={handleSubmit}  buttonTextFirst={"Go back to Login"} 
         buttonTextSecond={'Create Account'}/>
   )

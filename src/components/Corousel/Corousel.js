@@ -7,7 +7,6 @@ import CardC from 'components/Card/CardC';
 export default function Corousel({ list, title }) {
   
   const carouselRef = useRef(null);
-
   const handlePrev = () => {
     carouselRef.current.prev();
   };
