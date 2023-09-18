@@ -7,7 +7,6 @@ import { registerFields } from 'helpers/Fields';
 
 const { localStorageHelperFunctions: {getAllLocalStorageValues,getFromLocalStorage}} = helperFunctions
 
-
 const handleNewId = () => {
     return localStorage.length === 0 ? 1 : Math.max(...getAllLocalStorageValues().map(data => data.id)) + 1;
 }
